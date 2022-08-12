@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bottstrap/css/bootstrap.min.css">
+    <!-- <script type="text/javascript" src="js/jquery-3.6.0.js"></script> -->
+    <script src="bottstrap/js/bootstrap.bundle.min.js"></script>
+    <style>
+        *{
+            padding: 0;margin: 0;border: 0;
+            box-sizing: border-box;
+        }
+        ul,li{list-style: none;}
+        .sideWrap{
+            width: 300px;
+            height: calc( 100% - 60px );
+            background: blue;
+            position: fixed;
+            top:80px;
+            left: 0;
+        }
+        .logo{
+            height: 80px;
+            line-height: 80px;
+            font-size: 22px;
+            margin: 0;
+        }
+        .header{margin:0;}
+        .accordionList{
+            display: block;
+            width: 100%;
+            height: 60px;
+            padding: 1.25rem 0;
+        }
+        .managerWrap{
+            margin-left: 300px;
+            padding:30px;
+        }
+        .managerWrap .chk{
+            display: flex;
+            padding:20px;
+            background: #ddd;
+        }
+        .managerWrap .chkItem{
+            
+        }
+        .managerWrap h3{padding: 20px;}
+        .managerWrap .chkItem:nth-child(1){line-height: 35px;height: 35px;margin-right: 100px;}
+        .managerWrap .chkItem:nth-child(2){height: 35px;margin-right: 20px;position: relative;}
+        .managerWrap .chkItem:nth-child(2)::after{content: "~";display: block;position: absolute;top:0px;right: -16px;}
+        .managerWrap .chkItem > *{padding: 4px;border:1px solid #eee;}
+        .managerWrap .inquire .btnBox{display: flex;justify-content: center;}
+        .managerWrap .inquire .btnBox button{width: 200px;height: 60px;text-align: center;line-height: 60px;}
+        .managerWrap .inquire .btnBox button:nth-child(1){margin-right: 15px;}
+        .managerWrap .result {margin-top: 20px;border: 1px solid #eee;}
+        .managerWrap .result table {width: 100%;}
+        .managerWrap .result table tr:nth-child(1) {text-align: center;background-color: #ddd;}
+        .managerWrap .result table td{border: 1px solid #eee;padding:10px;}
+        .managerWrap .resultMoney {display: flex;justify-content: space-between;border: 0;padding:20px;}
+    </style>
+</head>
+<body>
+    <ul class="header">
+        <li class="item">
+            <h1 class="logo">나홀로 이사</h1>
+        </li>
+    </ul>
+    <div class="sideWrap">
+        <div class="accordion" id="boxs">
+            <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box5">매출 관리</button></h2>
+                <div id="box5" class="accordion-collapse collapse" data-bs-parent="#boxs">
+                    <div class="accordion-body">
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box6">정산 관리</button></h2>
+                <div id="box6" class="accordion-collapse collapse" data-bs-parent="#boxs">
+                    <div class="accordion-body">
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box7">매칭 관리</button></h2>
+                <div id="box7" class="accordion-collapse collapse" data-bs-parent="#boxs">
+                    <div class="accordion-body">
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box8">상담 관리</button></h2>
+                <div id="box8" class="accordion-collapse collapse" data-bs-parent="#boxs">
+                    <div class="accordion-body">
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                        <a class="accordionList" href="">매출 조회</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="managerWrap">
+        <div class="inquire">
+            <form>
+                <h3>조회하기</h3>
+                <ul class="chk">
+                    <li class="chkItem">
+                        정산 예정일
+                    </li>
+                    <li class="chkItem">
+                        <input type="date">
+                    </li>
+                    <li class="chkItem">
+                        <input type="date">
+                    </li>    
+                </ul>
+                <div class="btnBox">
+                    <button type="submit">검색</button>
+                    <button type="reset">초기화</button>
+                </div>
+            </form>
+        </div>
+        <div class="result">
+            <h3>정산 내역</h3>
+            <table>
+                <tr>
+                    <td>결제금액</td>
+                    <td>결제금액</td>
+                    <td>결제금액</td>
+                    <td>결제금액</td>
+                    <td>결제금액</td>
+                </tr>
+                <td colspan="5">데이터가 존재하지 않음</td>
+            </table>
+            <div class="resultMoney">
+                <p>정산 금액</p>
+                <p> 원</p>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

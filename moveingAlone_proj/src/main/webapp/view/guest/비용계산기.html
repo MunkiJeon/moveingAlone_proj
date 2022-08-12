@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;border: 0;box-sizing: border-box;}
+        ul,li{list-style: none;}
+        a{color: #333;text-decoration: none;}
+        header{position: fixed;top:0;left: 0;width: 100%;}
+        header nav{width: 1440px;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;padding: 0 30px;}
+        header nav ul{margin-left: auto;display: flex;}
+        header .logo {height: 100px;line-height: 100px;}
+
+        footer{background: rgb(34, 44, 61);padding: 100px 30px;display: flex;justify-content: space-between;}
+        footer table a{font-size: 14px; color: #fff;}
+        footer table tr:nth-child(1) td{color: white;font-weight: 900;font-size: 22px;}
+        footer table tr:nth-child(2) td{color: white;font-weight: 900;padding-top: 10px;font-size: 30px;}
+        footer table tr:nth-child(3) td{color: rgba(255, 255, 255, 0.5);font-weight: 900;padding-top: 20px;}
+        footer table tr:nth-child(4) td{color: rgba(255, 255, 255, 0.5);font-weight: 900;padding-top: 10px;}
+
+        .calc{max-width: 1440px;padding:100px 30px;margin: 0 auto; margin-top: 60px;}
+        .calc .calcList{display: flex;justify-content: space-between;}
+        .calc .calcTitle{text-align: center; font-size: 42px;}
+        .calc .calcItem {width: 820px;margin-right: 40px;}
+        .calc .calcBtn {width: 520px;}
+        .calc .calcItem h3 {font-size: 20px;margin-top: 30px;margin-bottom: 20px;}
+        .calc .address input{display: block;margin-top: 10px;width: 100%;height: 60px;font-size: 20px;padding:10px 20px;border: 1px solid #ddd;outline-color: rgba(61, 81, 255,0.6);}
+        .calc .time label{width: 398px;height: 180px;border: 1px solid #ddd;display: inline-block;border-radius: 5px;}
+        .calc .time label:nth-of-type(1){margin-right: 18px;}
+        .calc .time input { display: none;}
+        .calc .time input:checked + label {background: green;}
+        .calc .option label{display: flex;align-items: center;margin-top: 10px;width: 100%;height: 60px;font-size: 20px;padding:10px 20px;border: 1px solid #ddd;}
+        .calc .option input{margin-right: 20px;width: 30px;height: 30px;}
+        .calc .calcBtn {padding:30px;position: relative;border: 1px solid #ddd;margin-top: 80px;border: 1px solid #ddd;border-radius:5px;}
+        .calc .btnTitle{font-size: 30px;}
+        .calc .calcBtn .reset{position: absolute;top:30px;right: 30px;padding: 8px;border: 1px solid #eee;background: white;box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);border-radius: 5px;}
+        .calc .calcBtn ul{padding:20px 0;}
+        .calc .calcBtn li{display: flex;justify-content: space-between;margin-top: 10px;}
+        .calc .calcBtn li p {font-size: 20px;}
+        .calc .calcBtn li p:nth-child(2){font-weight: 900;}
+        .calc .calcBtn .resultchk{padding: 30px 0;display: flex;justify-content: space-between;font-size: 20px;}
+        .calc .calcBtn .resultchk p:nth-child(2) {color: rgb(61, 81, 255);font-weight: 900;font-size: 24px;}
+        .calc .calcBtn .resultBtn{width: 100%;text-align: center;color: white;padding:20px;background: rgb(61, 81, 255);font-size: 24px;font-weight: 900;border-radius: 5px;}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">나홀로 이사</h1>
+            <ul>
+                <li><a>로그인</a></li>
+                <li><a>회원가입</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="calc">
+        <h2 class="calcTitle">용달 비용 계산하기</h2>
+        <form>
+        <div class="calcList">
+                <ul class="calcItem">
+                    <li class="address">
+                        <h3>출/도착지를 입력해 주세요.</h3>
+                        <input type="text" placeholder="여기를 눌러서 출발지 주소 검색">
+                        <input type="text" placeholder="여기를 눌러서 도착지 주소 검색">
+                    </li>
+                    <li class="time">
+                        <h3>픽업시간을 선택해 주세요.</h3>
+                        <div class="timeWrap">
+                            <input type="radio" id="time1" name="time">
+                            <label for="time1">
+                                08:00 ~ 17:30 주간
+                            </label>
+                            <input type="radio" id="time2" name="time">
+                            <label for="time2">
+                                18:00 ~ 07:30 야간
+                            </label>
+                        </div>
+                    </li>
+                    <li class="option">
+                        <h3>운송옵션을 알려주세요.</h3>
+                        <label for="option1">
+                            <input type="radio" id="option1" name="option">
+                            차량만 이용(짐 직접운반)
+                        </label>
+                        <label for="option2">
+                            <input type="radio" id="option2" name="option">
+                            차에 짐 싣고 내리기 도움
+                        </label>
+                        <label for="option3">
+                            <input type="radio" id="option3" name="option">
+                            기사님이 짐을 같이 옮겨줌
+                        </label>
+                        <label for="option4">
+                            <input type="radio" id="option4" name="option">
+                            기사님 도움 + 인부 1명 추가
+                        </label>
+                    </li>
+                </ul>
+                <div>
+                    <div class="calcBtn">
+                        <h3 class="btnTitle">비용 계산 결과</h3>
+                        <button type="reset" class="reset">초기화</button>
+                        <ul>
+                            <li>
+                                <p>이동거리</p>
+                                <p>-</p>
+                            </li>
+                            <li>
+                                <p>운송 시간</p>
+                                <p>-</p>
+                            </li>
+                            <li>
+                                <p>운송 옵션</p>
+                                <p>-</p>
+                            </li>
+                        </ul>
+                        <div class="resultchk">
+                            <p>나홀로 이사 용달비용</p>
+                            <p>-</p>
+                        </div>
+                        <button class="resultBtn">나홀로 이사 첫 운송 할인받기</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <footer>
+
+        <table>
+            <tr>
+                <td colspan="6">
+                    <h2>나홀로 이사</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="">회사소개</a></td>
+                <td><a href="">마케팅 제휴</a></td>
+                <td><a href="">이용약관</a></td>
+                <td><a href="">개인정보 취급방침</a></td>
+                <td><a href="">외부커래 신고 제출 서류 안내</a></td>
+                <td><a href="">파트너</a></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    서울특별시 강남구 테헤란로 302 위워크타워 14층 대표:전문기
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    사업자 등록번호 : 000-00-00000 화물차운송주선 사업자: 제 00000000호 통신판매업신고: 1111-11111-111111호
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr><td colspan="4">고객센터</td></tr>
+            <tr><td colspan="4">0000 - 0000</td></tr>
+            <tr><td colspan="4">연중무휴 오전 9시 오후 6시(점심시간 12:30 ~ 13:30)</td></tr>
+            <tr><td colspan="4">서비스 관련 문의는 유선 또는 채팅을 통해 상담 부탁드립니다.</td></tr>
+            <tr>
+                <td><img src="" alt=""></td>
+                <td><img src="" alt=""></td>
+                <td><img src="" alt=""></td>
+                <td><img src="" alt=""></td>
+            </tr>
+        </table>
+    </footer>
+</body>
+</html>
