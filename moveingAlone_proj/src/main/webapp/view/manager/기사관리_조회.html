@@ -7,21 +7,8 @@
     <title>Document</title>
     <script src="../../resource/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="../../resource/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="bottstrap/css/bootstrap.min.css">
-    <script src="bottstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-       $(function(){
-        $("#Search_Title").click(function(){
-                console.log("제목 검색");
-                var title = $("#Search_Title").val();
-                if(title.equals("&gt&gt 직원 조회")){
-                    title = "&lt&lt";
-                }else if(title.equals("&lt&lt")){
-                    title = "&gt&gt 직원 조회";
-                };
-            });
-        })
-     </script>
+    <link rel="stylesheet" href="../../resource/bootstrap/css/bootstrap.min.css">
+    <script src="../../resource/bottstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <style>
     #SearchBox{
@@ -56,6 +43,15 @@
 <body>
     <div id="SearchBox">
         <h2 id="Search_Title"> &gt&gt 직원 조회</h2>
+        <script>
+            $(function(){
+                 $("#Search_Title").click(function(){
+                     var search_title = $("#search_title").val();
+                     console.log(search_title);
+                     console.log(search_title);
+                 })
+             })
+          </script>
         <form action="기사관리_조회.html" method="post">
             <div class="form-group">
                 <label for="">기사명</label>
