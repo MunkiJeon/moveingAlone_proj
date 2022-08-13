@@ -26,6 +26,32 @@ public class userDAO {
 		
 	}
 	
+	public userDTO oneUser(String id) {
+		userDTO dto = null;
+		sql = "select * from user where id = ?";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, id);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				dto = new userDTO();
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+				dto.setJoin_date(rs.getDate("join_date"));
+				dto.setTel(rs.getString("name"));
+				dto.setState(rs.getInt("state"));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return dto;
+	}
+	
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}
 		if(ptmt!=null)try {ptmt.close();} catch (SQLException e) {}

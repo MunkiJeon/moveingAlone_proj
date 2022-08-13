@@ -1,28 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<table border="">
-	<tr >
-		<td width="600px">
-			<jsp:include page="inc/top.jsp"/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<jsp:include page="${mainUrl }"/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<jsp:include page="inc/bottom.jsp"/>
-		</td>
-	</tr>
-</table>
+<jsp:include page="inc/${config }/top.jsp"/>
+<jsp:include page="${mainUrl }"/>
+<c:if test="${config=='guest' }">
+<jsp:include page="inc/${config }/bottom.jsp"/>
+</c:if>
 </body>
 </html>
