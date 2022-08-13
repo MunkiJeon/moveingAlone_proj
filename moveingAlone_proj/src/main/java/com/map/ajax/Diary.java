@@ -13,26 +13,27 @@ public class Diary implements AjaxService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String pname = request.getParameter("month");
-		System.out.println("PnameSch ¡¯¿‘"+pname);
 	
 		try {
 
 			JSONObject data2 = new JSONObject();
 			
-			
 
 			Calendar now = Calendar.getInstance();
+			int month = now.get(Calendar.MONTH);
 			int nowNN = now.get(Calendar.DATE);
 			String title = "";
 			if(pname==null) {
 				title += (now.get(Calendar.MONTH)+1)+"";
 			}else {
 				now.set(Calendar.YEAR, Integer.parseInt(pname)-1, 1);
-				System.out.println(Integer.parseInt(pname));
+				//System.out.println(Integer.parseInt(pname));
 				title += Integer.parseInt(pname);
 			}
 			now.set(Calendar.DATE,1);
-			
+			System.out.println(month);
+			System.out.println(pname);
+			System.out.println("-------------------------------------");
 			String ttt = "";
 
 			ttt+="<div id='dates'>";
@@ -41,7 +42,10 @@ public class Diary implements AjaxService {
 			ttt += "<div></div>";
 			}
 			for(int i = 1;i<=now.getActualMaximum(Calendar.DATE);i++){
-				ttt+="<div class='chk'>"+i+"</div>";
+				
+				if(month+1>= Integer.parseInt(title) && nowNN>=i )
+				ttt+="<div class='chk unchk'>"+i+"</div>";
+				else ttt+="<div class='chk'>"+i+"</div>";
 			}
 			ttt+="</div></div></div>";
 

@@ -5,6 +5,7 @@
 <section class="calc">
     <h2 class="calcTitle">용달 비용 계산하기</h2>
     <form>
+    
     <div class="calcList">
             <ul class="calcItem">
                 <li class="address">
@@ -25,15 +26,33 @@
                         </label>
                     </div>
                 </li>
+                <li class="time">
+                    <h3>이사</h3>
+                    <div class="timeWrap">
+                        <input type="radio" id="time1" name="time">
+                        <label for="time1">
+                            08:00 ~ 17:30 주간
+                        </label>
+                        <input type="radio" id="time2" name="time">
+                        <label for="time2">
+                            18:00 ~ 07:30 야간
+                        </label>
+                        <input type="radio" id="time2" name="time">
+                        <label for="time2">
+                            18:00 ~ 07:30 야간
+                        </label>
+                        
+                    </div>
+                </li>
                 <li class="option">
                     <h3>운송옵션을 알려주세요.</h3>
                     <label for="option1">
                         <input type="radio" id="option1" name="option">
-                        차량만 이용(짐 직접운반)
+                        일반이사
                     </label>
                     <label for="option2">
                         <input type="radio" id="option2" name="option">
-                        차에 짐 싣고 내리기 도움
+                        포장이사
                     </label>
                     <label for="option3">
                         <input type="radio" id="option3" name="option">
@@ -67,10 +86,9 @@
                         <p>나홀로 이사 용달비용</p>
                         <p>-</p>
                     </div>
-                    <button class="resultBtn">나홀로 이사 첫 운송 할인받기</button>
+                    <a class="resultBtn" href="Estimate">나홀로 이사 첫 운송 할인받기</a>
                 </div>
             </div>
         </div>
     </form>
 </section>
-    
