@@ -23,6 +23,7 @@ public class ManagerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String service = request.getRequestURI().substring((request.getContextPath()+"/manager/").length());
+		System.out.println(service);
 		request.setAttribute("config", "manager");
 		try {
 			ManagerService as = (ManagerService)Class.forName("com.map.manager."+service).newInstance();

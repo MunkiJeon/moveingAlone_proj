@@ -13,7 +13,7 @@
 <div class="sideWrap">
     <div class="accordion" id="boxs">
         <div class="accordion-item">
-            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box5">매출 관리</button></h2>
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box5">직원 관리</button></h2>
             <div id="box5" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="">매출 조회</a>
