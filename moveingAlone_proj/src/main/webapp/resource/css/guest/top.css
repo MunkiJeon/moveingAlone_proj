@@ -5,8 +5,8 @@
 ul,li{list-style: none;}
 a{color: #333;text-decoration: none;}
 header{position: fixed;top:0;left: 0;width: 100%;}
-header nav{width: 1440px;margin: 0 auto;display: flex;align-items: center;padding: 0 30px;}
-header nav .login{margin-left: auto;display: flex;}
+header nav{width: 1440px;margin: 0 auto;display: flex;align-items: center;padding: 0 30px;position: relative;}
+header nav .login{display: flex;position:absolute;top:50%;right:30px;transform:translateY(-50%)}
 header nav .list{margin-left:30px;}
 header .logo {height: 100px;line-height: 100px;}
 .mainSection{background: url('./img/main_kv.png') no-repeat center center/140% auto ;height: 100vh;color: white;}
@@ -32,4 +32,4 @@ footer table a{font-size: 14px; color: #fff;}
 footer table tr:nth-child(1) td{color: white;font-weight: 900;font-size: 22px;}
 footer table tr:nth-child(2) td{color: white;font-weight: 900;padding-top: 10px;font-size: 30px;}
 footer table tr:nth-child(3) td{color: rgba(255, 255, 255, 0.5);font-weight: 900;padding-top: 20px;}
-footer table tr:nth-child(4) td{color: rgba(255, 255, 255, 0.5);font-weight: 900;padding-top: 10px;}
+footer table tr:nth-child(4) td{color: rgba(255, 255, 255, 0.5);font-weight: 900;padding-top: 10px;}  

@@ -9,8 +9,8 @@
          	<li><a href="<c:url value="/guest/CostCalc"/>">비용계산기</a></li>
          </ul>
          <ul class="login">
-             <li><a>로그인</a></li>
-             <li><a>회원가입</a></li>
+             <li><a href="<c:url value='/login/Login'/>">로그인</a></li>
+             <li><a href="<c:url value='/login/SignUp'/>">회원가입</a></li>
          </ul>
      </nav>
  </header>

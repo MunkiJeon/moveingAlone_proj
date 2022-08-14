@@ -1,4 +1,4 @@
-package com.map.guest;
+package com.map.login;
 
 import java.io.IOException;
 
@@ -9,26 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.map.ajax.AjaxService;
+import com.map.guest.GuestService;
 
 /**
- * Servlet implementation class GuestController
+ * Servlet implementation class LoginController
  */
-@WebServlet("/guest/*")
-public class GuestController extends HttpServlet {
+@WebServlet("/login/*")
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public GuestController() {
+
+    public LoginController() {
         super();
     }
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String service = request.getRequestURI().substring((request.getContextPath()+"/guest/").length());
+		String service = request.getRequestURI().substring((request.getContextPath()+"/login/").length());
 
 		System.out.println(service);
 		request.setAttribute("config", "guest");
 		try {
-			GuestService as = (GuestService)Class.forName("com.map.guest."+service).newInstance();
-			as.execute(request, response);
+			LoginService ls = (LoginService)Class.forName("com.map.login."+service).newInstance();
+			ls.execute(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

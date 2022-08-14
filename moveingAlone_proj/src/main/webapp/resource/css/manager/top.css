@@ -1,5 +1,5 @@
 @charset "UTF-8";
- *{padding: 0;margin: 0;border: 0;box-sizing: border-box;}
+ *{padding: 0;margin: 0;box-sizing: border-box;}
  ul,li{list-style: none;}
  a{color:#333;text-decoration: none;}
  .sideWrap{width: 300px;height: calc( 100% - 60px );background: blue;position: fixed;top:80px;left: 0;}
