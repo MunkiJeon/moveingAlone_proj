@@ -26,7 +26,6 @@ public class InquiryList implements AjaxService {
 		
 		JSONArray data = new JSONArray();
 		
-		System.out.println("talkWrap");
 		
 		for (InquiryDTO dto : list) {
 			              

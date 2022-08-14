@@ -4,7 +4,7 @@
 .singup{margin:0 auto;}
 .formW{margin-top: 150px;}
 </style>
-<form action="checkInfo.jsp" class="formW">
+<form action="SignUpReg" class="formW">
    <table class="singup">
       <tr><td align="center"><h2 >정보입력</h2></td></tr>
       <tr>
@@ -38,10 +38,10 @@
          <td align="center"><input type="text" name="mail" placeholder="id@example.com" /></td>
       </tr>
       <tr>
-         <td align="center"><input type="submit" value="다음"></td>
+         <td align="center"><input type="submit" value="회원가입"></td>
       </tr>
       <tr>
-         <td><h2>이미 회원이신가요?</h12><a href="loginForm.jsp">로그인하기</a></td>
+         <td><h2>이미 회원이신가요?</h2><a href="Login">로그인하기</a></td>
       </tr>
    </table>
 </form>

@@ -25,7 +25,6 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String service = request.getRequestURI().substring((request.getContextPath()+"/login/").length());
 
-		System.out.println(service);
 		request.setAttribute("config", "guest");
 		try {
 			LoginService ls = (LoginService)Class.forName("com.map.login."+service).newInstance();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.map.model.UserDAO;
 import com.map.model.UserDTO;
@@ -16,11 +17,28 @@ public class LoginReg implements LoginService {
 		 ArrayList<UserDTO> list = new UserDAO().allUser();
 		 String id = request.getParameter("id");
 		 String pw = request.getParameter("pw");
+		HttpSession session = request.getSession();
+		
 		 for (UserDTO dto : list) {
 			if(dto.getId().equals(id)&&dto.getPw().equals(pw)) {
+				
+				session.setAttribute("id", id);
+				switch(dto.getLevel()) {
+				case 0:
+					request.setAttribute("config", "manager");
+					request.setAttribute("mainUrl", "manager/calculate.jsp");
+					break;
+				case 1:
+					request.setAttribute("config", "staff");
+					request.setAttribute("mainUrl", "staff/main.jsp");
+					break;
+				case 2:
+					request.setAttribute("config", "guest");
+					request.setAttribute("mainUrl", "guest/main.jsp");
+					break;
+				}
 				
 			}
 		}
 	}
-
 }

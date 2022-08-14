@@ -9,8 +9,16 @@
          	<li><a href="<c:url value="/guest/CostCalc"/>">비용계산기</a></li>
          </ul>
          <ul class="login">
-             <li><a href="<c:url value='/login/Login'/>">로그인</a></li>
-             <li><a href="<c:url value='/login/SignUp'/>">회원가입</a></li>
+         	 <c:choose>
+         	 	<c:when test="${id!=null }">
+		             <li><a href="<c:url value='/login/LogOut'/>">로그아웃</a></li>
+		             <li><a href="<c:url value='/login/LogOut'/>">마이페이지</a></li>         	 		
+         	 	</c:when>
+         	 	<c:otherwise>
+		             <li><a href="<c:url value='/login/Login'/>">로그인</a></li>
+		             <li><a href="<c:url value='/login/SignUp'/>">회원가입</a></li>
+         	 	</c:otherwise>
+         	 </c:choose>
          </ul>
      </nav>
  </header>

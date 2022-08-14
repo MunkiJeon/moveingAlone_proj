@@ -23,7 +23,6 @@ public class AjaxController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String service = request.getRequestURI().substring((request.getContextPath()+"/ajax/").length());
-		System.out.println(service);
 		try {
 			AjaxService as = (AjaxService)Class.forName("com.map.ajax."+service).newInstance();
 			as.execute(request, response);

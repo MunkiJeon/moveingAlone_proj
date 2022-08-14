@@ -4,13 +4,13 @@
 .table{margin:0 auto;}
 .formW{margin-top: 200px;}
 </style>
-<form action="mainScreen2.jsp" class="formW">
+<form action="LoginReg" class="formW">
    <table>
       <tr>
          <td align="center">아이디</td>
       </tr>
       <tr>
-         <td align="center"><input type="text" name="pid"></td>
+         <td align="center"><input type="text" name="id"></td>
       </tr>
       <tr>
          <td align="center">비밀번호</td>

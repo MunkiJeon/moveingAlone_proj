@@ -23,7 +23,6 @@ public class ChatBot implements AjaxService {
 		
 		String id = request.getParameter("id");
 		String contents = request.getParameter("contents");
-		System.out.println(id+","+contents);
 		
 		UserDTO dto = new UserDAO().oneUser(id);
 		
