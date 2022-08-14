@@ -21,5 +21,5 @@
 .calc .calcBtn li p:nth-child(2){font-weight: 900;}
 .calc .calcBtn .resultchk{padding: 30px 0;display: flex;justify-content: space-between;font-size: 20px;}
 .calc .calcBtn .resultchk p:nth-child(2) {color: rgb(61, 81, 255);font-weight: 900;font-size: 24px;}
-.calc .calcBtn .resultBtn{width: 100%;text-align: center;color: white;padding:20px;background: rgb(61, 81, 255);font-size: 24px;font-weight: 900;border-radius: 5px;}
-    
+.calc .calcBtn .resultBtn{width: 100%;text-align: center;color: white;padding:20px;background: rgb(61, 81, 255);font-size: 24px;font-weight: 900;border-radius: 5px;display: block;}
+.calc .detailNext{display:block;width: 200px;height: 60px;margin:0 auto;background: rgb(61, 81, 255);color:white;text-align: center;line-height: 60px;font-size:30px;margin-top:50px;border-radius: 10px;}
