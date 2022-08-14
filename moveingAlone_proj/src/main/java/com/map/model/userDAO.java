@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -50,6 +51,35 @@ public class userDAO {
 		}
 		
 		return dto;
+	}
+	
+	public ArrayList<userDTO> allUser() {
+		ArrayList<userDTO> res = new ArrayList<userDTO>();
+		sql = "select * from user";
+		try {
+			ptmt = con.prepareStatement(sql);
+			
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				userDTO dto = new userDTO();
+				
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+				dto.setJoin_date(rs.getDate("join_date"));
+				dto.setTel(rs.getString("name"));
+				dto.setState(rs.getInt("state"));
+				
+				res.add(dto);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
 	}
 	
 	public void close() {

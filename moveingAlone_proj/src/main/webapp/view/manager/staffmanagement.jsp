@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <link rel="stylesheet" href="<c:url value='/resource'/>/css/manager/staffmanagement.css">
 <div class="managerWrap">
     <table  border="" width="100%">
@@ -24,12 +25,14 @@
             <td>입사일</td>
             <td>실적보기</td>
         </tr>
+<c:forEach items="${mainData }" var="dto" varStatus="no">
         <tr align="center"> <!-- 모양  -->
             <td><input type="checkbox" id="allCheck"></td>
-            <td>홍길동</td>
-            <td>hong</td>
-            <td>2020-01-01</td>
-            <td><a href="관리자_직원관리_실적보기.html">보기</a></td>
+            <td>${dto.name }</td>
+            <td>${dto.id }</td>
+            <td>${dto.join_date }</td>
+            <td><a href="">보기</a></td>
         </tr>
+</c:forEach>        
     </table>
 </div>
