@@ -73,31 +73,31 @@ function diaryAjax(num){
 		async:false,
 		dataType:'json',	//지정하지 않으면 문자열로 처리
 		success:function(dd){
-			$("diary .wrapper").show();
-			$("diary .wrapper").find("div").remove();
-			$("diary .wrapper").find(".flex-wrap").remove();
-			$("diary .wrapper").append("<div class='flex-wrap'>");
-			$("diary .wrapper").find(".flex-wrap").append("<button class='pre'>&lt;</button>");
-			$("diary .wrapper").find(".flex-wrap").append("<h2 class='month'>"+dd.title+"월</h2>");
-			$("diary .wrapper").find(".flex-wrap").append("<button class='next'>&gt;</button>");
-			$("diary .wrapper").append(dd.diary);
+			$(".diary .wrapper").show();
+			$(".diary .wrapper").find("div").remove();
+			$(".diary .wrapper").find(".flex-wrap").remove();
+			$(".diary .wrapper").append("<div class='flex-wrap'>");
+			$(".diary .wrapper").find(".flex-wrap").append("<button class='pre'>&lt;</button>");
+			$(".diary .wrapper").find(".flex-wrap").append("<h2 class='month'>"+dd.title+"월</h2>");
+			$(".diary .wrapper").find(".flex-wrap").append("<button class='next'>&gt;</button>");
+			$(".diary .wrapper").append(dd.diary);
 			if(dd.title<=realMonth+1) $(".pre").attr("disabled", true);
 			if(dd.title>=12) $(".next").attr("disabled", true);
 	
 			
-			$("diary .pre").click(function(){
-				num = $(".month").html().split("월")[0]*1-1;
+			$(".diary .pre").click(function(){
+				num = $(".diary .month").html().split("월")[0]*1-1;
 				diaryAjax(num);
 			})
-			$("diary .next").click(function(){
-				num = $(".month").html().split("월")[0]*1+1;
+			$(".diary .next").click(function(){
+				num = $(".diary .month").html().split("월")[0]*1+1;
 				diaryAjax(num);
 			})
-			$("diary .chk").click(function(){
-				if($("diary .month").html().split("월")[0]*1-1<=realMonth && $(this).html().trim()*1<=realDay) return;
-				$("diary .chk").css({background:"transparent"});
+			$(".diary .chk").click(function(){
+				if($(".month").html().split("월")[0]*1-1<=realMonth && $(this).html().trim()*1<=realDay) return;
+				$(".diary .chk").css({background:"transparent"});
 				$(this).css({background:"red"});
-				$("diary .chk").removeClass("dayChk");
+				$(".diary .chk").removeClass("dayChk");
 				$(this).addClass("dayChk");
 			})
 			

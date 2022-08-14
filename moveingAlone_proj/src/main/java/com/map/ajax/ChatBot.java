@@ -41,11 +41,11 @@ public class ChatBot implements AjaxService {
 		for (InquiryDTO inquiryDTO : list) {
 			
 			try {
-				data.add(URLEncoder.encode(inquiryDTO.getName(),"UTF-8"));
 				data.add(URLEncoder.encode(inquiryDTO.getContents(),"UTF-8"));
-				if(inquiryDTO.getAnswer()!=null)
+				
+				if(inquiryDTO.getAnswer()!=null) {
 				data.add(URLEncoder.encode(inquiryDTO.getAnswer(),"UTF-8"));
-				else data.add("null");
+				}else {data.add("null");}
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

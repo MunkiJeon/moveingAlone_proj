@@ -333,4 +333,4 @@
     </section>
     </form>
     
-    <script src="<c:url value='/resource/js/estimate.css'/>"></script>
+    <script src="<c:url value='/resource/js/estimate.js'/>"></script>
