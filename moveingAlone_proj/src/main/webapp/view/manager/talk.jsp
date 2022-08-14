@@ -20,5 +20,40 @@
             </li>
         </ul>
         <div class="line"></div>
+        <div class="inquriy">
+        	
+        </div>
     </div>
 </div>
+<script>
+	$(function(){
+		let index=1;
+		inquriy(index);
+		$(".managerWrap .stateItem").click(function(){
+			index = $(this).index();
+			console.log(index);
+			inquriy(index)
+		})
+		function inquriy(index){
+			$.ajax({
+				url:"<c:url value='/ajax/InquiryList'/>",
+				type:'POST',
+				data:{index:index},
+				async:false,
+				dataType:'json',
+				success:function(data){
+					let str = "<ul>";
+					for(let key in data){
+						str+="<li><p>"+key+"</p><p>"+data[key]+"</p></li>"
+					}
+					str+="</ul>";
+					$(".managerWrap .inquriy").html(str);
+				},
+				error:function(e){
+					
+					console.log(e.responseText)
+				}
+			})
+		}
+	})
+</script>

@@ -21,8 +21,12 @@ public class GuestController extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String[] service1 = request.getRequestURI().split(";");
 		
-		String service = request.getRequestURI().substring((request.getContextPath()+"/guest/").length());
+		String service = request.getRequestURI().substring((request.getContextPath()+"/guest/").length(),(service1[0].length()));
+		
+		System.out.println(service1[0]);
+		System.out.println(service);
 		request.setAttribute("config", "guest");
 		try {
 			GuestService as = (GuestService)Class.forName("com.map.guest."+service).newInstance();

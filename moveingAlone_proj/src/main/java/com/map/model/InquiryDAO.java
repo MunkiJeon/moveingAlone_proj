@@ -53,6 +53,57 @@ public class InquiryDAO {
 		return res;
 	}
 	
+	public ArrayList<InquiryDTO> answer() {
+		ArrayList<InquiryDTO> res = new ArrayList<InquiryDTO>();
+		
+		sql = "select * from inquiry";
+		try {
+			ptmt = con.prepareStatement(sql);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				InquiryDTO dto = new InquiryDTO();
+				dto.setId(rs.getString("id"));
+				dto.setAnswer(rs.getString("answer"));
+				dto.setContents(rs.getString("contents"));
+				dto.setTime(rs.getDate("time"));
+				dto.setName(rs.getString("name"));
+				res.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
+	public ArrayList<InquiryDTO> atmosphere() {
+		ArrayList<InquiryDTO> res = new ArrayList<InquiryDTO>();
+		
+		sql = "select * from inquiry";
+		try {
+			ptmt = con.prepareStatement(sql);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				InquiryDTO dto = new InquiryDTO();
+				dto.setId(rs.getString("id"));
+				dto.setAnswer(rs.getString("answer"));
+				dto.setContents(rs.getString("contents"));
+				dto.setTime(rs.getDate("time"));
+				dto.setName(rs.getString("name"));
+				res.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
+	
 	public ArrayList<InquiryDTO> idList(String id){
 		ArrayList<InquiryDTO> res = new ArrayList<InquiryDTO>();
 		sql = "select * from inquiry where id = ?";
