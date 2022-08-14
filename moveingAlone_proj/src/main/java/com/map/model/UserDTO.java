@@ -2,7 +2,7 @@ package com.map.model;
 
 import java.sql.Date;
 
-public class userDTO {
+public class UserDTO {
 	String id;
 	String pw;
 	String name;
@@ -10,6 +10,13 @@ public class userDTO {
 	String tel;
 	Date join_date;
 	int state;
+	int level;
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
 	public String getId() {
 		return id;
 	}

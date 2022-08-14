@@ -13,8 +13,8 @@ import org.json.simple.JSONObject;
 
 import com.map.model.InquiryDAO;
 import com.map.model.InquiryDTO;
-import com.map.model.userDAO;
-import com.map.model.userDTO;
+import com.map.model.UserDAO;
+import com.map.model.UserDTO;
 
 public class ChatBot implements AjaxService {
 
@@ -25,7 +25,7 @@ public class ChatBot implements AjaxService {
 		String contents = request.getParameter("contents");
 		System.out.println(id+","+contents);
 		
-		userDTO dto = new userDAO().oneUser(id);
+		UserDTO dto = new UserDAO().oneUser(id);
 		
 		InquiryDTO iqDto = new InquiryDTO();
 		iqDto.setId(dto.getId());

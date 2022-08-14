@@ -13,22 +13,6 @@
 				"url": "jdbc:mariadb://localhost:3306/",
 				"home": "mysql_client",
 				"type": "dev",
-				"auth-model": "native"
-			}
-		},
-		"mariaDB-1829c539f15-19348503c268e4cd": {
-			"provider": "mysql",
-			"driver": "mariaDB",
-			"name": "move_db",
-			"save-password": true,
-			"read-only": false,
-			"configuration": {
-				"host": "localhost",
-				"port": "3306",
-				"database": "move_db",
-				"url": "jdbc:mariadb://mk0709.iptime.org:3434/move_db",
-				"home": "mysql_client",
-				"type": "dev",
 				"auth-model": "native",
 				"handlers": {}
 			}

@@ -10,14 +10,12 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class MatchingDAO {
-public class matchingDAO {
 	Connection con;
 	PreparedStatement ptmt;
 	ResultSet rs;
 	String sql;
 	
 	public MatchingDAO() {
-	public matchingDAO() {
 		try {
 			InitialContext init = new InitialContext();
 			DataSource ds = (DataSource)init.lookup("java:comp/env/qwer");
@@ -57,17 +55,17 @@ public class matchingDAO {
 //		return dto;
 //	}
 	
-	public ArrayList<matchingDTO> allUser() {
-		ArrayList<matchingDTO> res = new ArrayList<matchingDTO>();
+	public ArrayList<MatchingDTO> allUser() {
+		ArrayList<MatchingDTO> res = new ArrayList<MatchingDTO>();
 		sql = "select * from matching";
 		try {
 			ptmt = con.prepareStatement(sql);
 			
 			rs = ptmt.executeQuery();
 			while(rs.next()) {
-				matchingDTO dto = new matchingDTO();
+				MatchingDTO dto = new MatchingDTO();
 				
-				dto = new matchingDTO();
+				dto = new MatchingDTO();
 				dto.setRes_num(rs.getInt("res_num"));
 				dto.setUser_ID(rs.getString("user_ID"));
 //				dto.setUser_ID(rs.getString("user_ID"));//이름 대신 임시

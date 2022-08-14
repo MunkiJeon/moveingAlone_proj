@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.map.model.matchingDAO;
-import com.map.model.matchingDTO;
-import com.map.model.userDAO;
-import com.map.model.userDTO;
+import com.map.model.MatchingDAO;
+import com.map.model.MatchingDTO;
+import com.map.model.UserDAO;
+import com.map.model.UserDTO;
 
 public class Matching implements ManagerService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ArrayList<matchingDTO> mainData = new matchingDAO().allUser();
+		ArrayList<MatchingDTO> mainData = new MatchingDAO().allUser();
 		
 		request.setAttribute("mainData", mainData);
 		request.setAttribute("mainUrl", "manager/matching.jsp");

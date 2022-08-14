@@ -1,23 +1,9 @@
 package com.map.model;
 
 import java.util.Date;
-import java.sql.Date;
+
 
 public class MatchingDTO {
-	  int res_num;
-	  String user_ID;
-	  String driver_ID;
-	  Date reservat_date;
-	  String start_point;
-	  String start_op;
-	  String end_point;
-	  String end_op;
-	  String luggage_list;
-	  int box;
-	  String requests;
-	  int req_state;
-	  Date req_date;
-public class matchingDTO {
 	int res_num;
 	String user_ID;
 	String driver_ID;
@@ -96,8 +82,7 @@ public class matchingDTO {
 	public String getRequests() {
 		return requests;
 	}
-	public void setRequests(String requests) {
-		this.requests = requests;
+
 	public void setRequests(String repuests) {
 		this.requests = repuests;
 	}

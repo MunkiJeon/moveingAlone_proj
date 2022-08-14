@@ -5,14 +5,8 @@
 		auth='Container'
 		type='javax.sql.DataSource'
 		driverClassName='org.mariadb.jdbc.Driver'
-<<<<<<< HEAD
-		url='jdbc:mariadb://localhost:3306/test'
-		username='root'
-		password='Qwer1234!'
-=======
 		url='jdbc:mariadb://mk0709.iptime.org:3434/move_db'
 		username='move_user'
 		password='0709'
->>>>>>> mk_manager01
 	/>
 </Context>
