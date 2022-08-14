@@ -4,7 +4,7 @@
 .singup{margin:0 auto;}
 .formW{margin-top: 150px;}
 </style>
-<form action="SignUpReg" class="formW">
+<form action="SignUpReg" class="formW" method="post">
    <table class="singup">
       <tr><td align="center"><h2 >정보입력</h2></td></tr>
       <tr>
