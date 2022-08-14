@@ -5,8 +5,8 @@
 		auth='Container'
 		type='javax.sql.DataSource'
 		driverClassName='org.mariadb.jdbc.Driver'
-		url='jdbc:mariadb://localhost:3306/test'
+		url='jdbc:mariadb://localhost:3306/green_db'
 		username='root'
-		password='Qwer1234!'
+		password='123456'
 	/>
 </Context>

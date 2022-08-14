@@ -7,7 +7,7 @@
     <article>
         <p>언제 어디서든</p>
         <h2>이사할 때,나이</h2>
-        <a class="calclink" href="CostCalc">모의 견적</a>
+        <button>모의 견적</button>
     </article>
 </section>
 <section class="mainCnt">
