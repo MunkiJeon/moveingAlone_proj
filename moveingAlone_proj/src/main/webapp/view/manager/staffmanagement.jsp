@@ -1,38 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style>
-#SearchBox {
-	width: 100%;
-	background-color: #f5f5f5;
-	border-radius: 10px;
-	padding: 10px;
-	float: right;
-}
-
-#SearchBox input {
-	width: 20%;
-	height: 30px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	padding: 5px;
-}
-
-button {
-	height: 30px;
-	border-radius: 5px;
-	border: 0px;
-	padding-left: 5px;
-	margin: 7px;
-	background-color: rgb(133, 175, 255);
-	color: #000;
-}
-
-button:hover {
-	background-color: rgb(11, 76, 255);
-	color: #fff;
-}
-</style>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<link rel="stylesheet" href="<c:url value='/resource'/>/css/manager/staffmanagement.css">
 <div class="managerWrap">
     <table  border="" width="100%">
         <tr>
@@ -55,12 +25,14 @@ button:hover {
             <td>입사일</td>
             <td>실적보기</td>
         </tr>
+<c:forEach items="${mainData }" var="dto" varStatus="no">
         <tr align="center"> <!-- 모양  -->
             <td><input type="checkbox" id="allCheck"></td>
-            <td>홍길동</td>
-            <td>hong</td>
-            <td>2020-01-01</td>
-            <td><a href="관리자_직원관리_실적보기.html">보기</a></td>
+            <td>${dto.name }</td>
+            <td>${dto.id }</td>
+            <td>${dto.join_date }</td>
+            <td><a href="">보기</a></td>
         </tr>
+</c:forEach>        
     </table>
 </div>
