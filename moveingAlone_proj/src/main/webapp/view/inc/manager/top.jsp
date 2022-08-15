@@ -39,8 +39,8 @@
             <div id="box6" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="Calculate">정산 조회</a>
-                    <a class="accordionList" href="Calculate">매출 조회</a>
-                    <a class="accordionList" href="Calculate">매입 조회</a>
+                    <a class="accordionList" href="Calculate?res=매출">매출 조회</a>
+                    <a class="accordionList" href="Calculate?res=매입">매입 조회</a>
                 </div>
             </div>
         </div>
