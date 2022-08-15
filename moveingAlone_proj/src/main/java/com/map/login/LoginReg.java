@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.map.model.CalculateDAO;
+import com.map.model.CalculateDTO;
 import com.map.model.UserDAO;
 import com.map.model.UserDTO;
 
@@ -18,13 +20,21 @@ public class LoginReg implements LoginService {
 		 String id = request.getParameter("id");
 		 String pw = request.getParameter("pw");
 		HttpSession session = request.getSession();
-		
+		int res = 0;
 		 for (UserDTO dto : list) {
 			if(dto.getId().equals(id)&&dto.getPw().equals(pw)) {
 				
 				session.setAttribute("id", id);
 				switch(dto.getLevel()) {
-				case 0:
+				case 0:					
+					ArrayList<CalculateDTO> clist = new CalculateDAO().list();
+					for (CalculateDTO pr : clist) {
+						if(pr.getCal_type().equals("매출"))
+						res += pr.getPrice();
+						else res -= pr.getPrice();
+					}
+					request.setAttribute("clist", clist);
+					request.setAttribute("res", res);
 					request.setAttribute("config", "manager");
 					request.setAttribute("mainUrl", "manager/calculate.jsp");
 					break;
