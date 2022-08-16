@@ -14,7 +14,7 @@
                     입사일:<input type="date" id="search_date" name="search_date" placeholder="입사일">
                     <button id="searchBtn">검색</button>    
                 </div>
-                <button id="addBtn">추가</button>
+                <button id="addBtn popupbtn">추가</button>
                 <button id="editBtn">수정</button>
                 <button id="deleteBtn">삭제</button>
             </td>
@@ -72,6 +72,8 @@
 	    </table>
     </form>
 </div>
+
+<div class="popupbg"></div>
 <script>
 	$(function(){
 		let level = "${level}";
@@ -86,7 +88,7 @@
 	            	
 	            	url:"<c:url value='/ajax/AddModify'/>",
 	            	type:'POST',
-	    			data:{start:$("#start").val(),end:$("#end").val()},
+	    			data:{level:$("#start").val(),end:$("#end").val()},
 	    			async:false,
 	    			dataType:'json',
 	    			success:function(data){
