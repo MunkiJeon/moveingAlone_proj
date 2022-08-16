@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="<c:url value='/resource/css/guest/estimate2.css'/>">
-	<form action="Estimate?num=3">
+	<form action="Estimate?num=3" method="post">
+	<!-- <input type="hidden" name="num" value="3"/> -->
     <section class="product">
         <p class="productExplanation">짐 수량에 맞춰 아이콘을 터치해주세요</p>
         <div class="line"></div>
         <h2 class="productTitle">침실/거실가구</h2>
-        <ul class="productItem">
+        <ul class="productItem productItem1">
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
@@ -101,11 +102,10 @@
         </ul>
     </section>
 
-    
     <section class="product">
         <div class="line"></div>
         <h2 class="productTitle">침실/거실가구</h2>
-        <ul class="productItem">
+        <ul class="productItem productItem2">
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
@@ -202,7 +202,7 @@
     <section class="product">
         <div class="line"></div>
         <h2 class="productTitle">침실/거실가구</h2>
-        <ul class="productItem">
+        <ul class="productItem productItem3">
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
@@ -327,13 +327,13 @@
                 </p>
             </div>
         </div>
-        <input type="text" style="display:none" name="item1" placeholder="aaa">
-        <input type="text" style="display:none" name="item2" placeholder="aaa">
-        <input type="text" style="display:none" name="item3" placeholder="aaa">
-        <input type="text" style="display:none" name="box" placeholder="aaa">
+        <input type="hidden" name="item1">
+        <input type="hidden" name="item2">
+        <input type="hidden" name="item3">
+        <input type="hidden" name="box">
         
        	<button type="submit" class="detailNext">다음</button>
-       	<button type="button" class="test">테스트</button>
+       	<!-- <button type="button" class="test">테스트</button> -->
     </section>
     </form>
     
