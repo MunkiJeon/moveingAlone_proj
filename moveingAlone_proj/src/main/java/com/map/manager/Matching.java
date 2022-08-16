@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.map.model.MatchingDAO;
 import com.map.model.MatchingDTO;
-import com.map.model.UserDAO;
-import com.map.model.UserDTO;
 
 public class Matching implements ManagerService {
 	@Override

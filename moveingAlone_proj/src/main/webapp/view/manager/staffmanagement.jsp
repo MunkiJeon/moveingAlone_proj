@@ -26,6 +26,7 @@
             <td>실적보기</td>
         </tr>
 <c:forEach items="${mainData }" var="dto" varStatus="no">
+<%-- 	<c:if test="${dto.leval }"></c:if> --%>
         <tr align="center"> <!-- 모양  -->
             <td><input type="checkbox" id="allCheck"></td>
             <td>${dto.name }</td>

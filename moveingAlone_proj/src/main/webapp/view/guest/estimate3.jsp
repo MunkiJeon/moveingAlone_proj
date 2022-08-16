@@ -60,7 +60,7 @@
                                 <input type="radio" id="option2" name="option">
                                 없음
                             </label>
-                            <button></button>
+                            <button type="submit" class="detailNext">다음</button>
                         </li>
                     </ul>
                 </div>
