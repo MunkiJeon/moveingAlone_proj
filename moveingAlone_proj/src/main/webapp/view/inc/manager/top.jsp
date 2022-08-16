@@ -16,10 +16,18 @@
             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box1">직원 관리</button></h2>
             <div id="box1" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
-                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 조회</a>
-                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 추가</a>
-                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 수정</a>
-                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 삭제</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement?level=1">직원 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement?level=1">직원 추가</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement?level=1">직원 수정</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement?level=1">직원 삭제</a>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box1">고객 관리</button></h2>
+            <div id="box1" class="accordion-collapse collapse" data-bs-parent="#boxs">
+                <div class="accordion-body">
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement?level=2">고객 관리</a>
                 </div>
             </div>
         </div>

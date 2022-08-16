@@ -4,11 +4,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <link rel="stylesheet" href="<c:url value='/resource'/>/css/manager/staffmanagement.css">
 <div class="managerWrap">
+	<h2>${title } 관리</h2>
     <table  border="" width="100%">
         <tr>
             <td colspan="5" align="center">
                 <div id="SearchBox">
-                    이름: <input type="text" id="search_title" name="search_name" placeholder="기사명">
+                    이름: <input type="text" id="search_title" name="search_name" placeholder="${title }명">
                     아이디: <input type="text"  id="search_id" name="search_id" placeholder="아이디">
                     입사일:<input type="date" id="search_date" name="search_date" placeholder="입사일">
                     <button id="searchBtn">검색</button>    
@@ -28,7 +29,7 @@
 <c:forEach items="${mainData }" var="dto" varStatus="no">
 <%-- 	<c:if test="${dto.leval }"></c:if> --%>
         <tr align="center"> <!-- 모양  -->
-            <td><input type="checkbox" id="allCheck"></td>
+            <td><input type="checkbox" id="allCheck${no.index }" class="dataChk" value="${dto.id }"></td>
             <td>${dto.name }</td>
             <td>${dto.id }</td>
             <td>${dto.join_date }</td>
@@ -37,3 +38,71 @@
 </c:forEach>        
     </table>
 </div>
+
+<div class="stepsign">
+    <form>
+	    <table>
+	        <tr>
+	            <td>아이디</td>
+	            <td><input type="text"/></td>
+	        </tr>
+	        <tr>
+	            <td>비번</td>
+	            <td><input type="text"/></td>
+	        </tr>
+	        <tr>
+	            <td>전화번호</td>
+	            <td><input type="text"/></td>
+	        </tr>
+	        <tr>
+	            <td>주민등록번호</td>
+	            <td><input type="text"/></td>
+	        </tr>
+	        <tr>
+	            <td>증명사진</td>
+	            <td><input type="file"/></td>
+	        </tr>
+	        <tr>
+	            <td>운전면허사진</td>
+	            <td><input type="file"/></td>
+	        </tr>
+	        <tr>
+	            <td colspan="2"><button type="submit">등록</button></td>
+	        </tr>
+	    </table>
+    </form>
+</div>
+<script>
+	$(function(){
+		let level = "${level}";
+		$(function(){
+            $(".popupbtn").click(function(e){
+                e.preventDefault();
+                $(".popupbg").fadeIn(500);
+                $(".stepsign").stop().animate({bottom:"50%"},500)
+                
+                
+                $.ajax({
+	            	
+	            	url:"<c:url value='/ajax/AddModify'/>",
+	            	type:'POST',
+	    			data:{start:$("#start").val(),end:$("#end").val()},
+	    			async:false,
+	    			dataType:'json',
+	    			success:function(data){
+	    				
+	    			},
+	    			error:function(e){console.log(e)}
+            	})
+                
+                
+            })
+            $(".popupbg").click(function(){
+                $(this).fadeOut(500);
+                $(".stepsign").stop().animate({bottom:"-100vh"},500)
+                
+
+            })
+        })
+	})
+</script>

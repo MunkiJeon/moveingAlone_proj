@@ -83,6 +83,35 @@ public class UserDAO {
 		
 		return res;
 	}
+	public ArrayList<UserDTO> levelUser(int level) {
+		ArrayList<UserDTO> res = new ArrayList<UserDTO>();
+		sql = "select * from user where level = ?";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, level);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				UserDTO dto = new UserDTO();
+				
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+				dto.setJoin_date(rs.getDate("join_date"));
+				dto.setTel(rs.getString("name"));
+				dto.setState(rs.getInt("state"));
+				dto.setLevel(rs.getInt("level"));
+				
+				res.add(dto);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
 	public int insert(UserDTO dto){
       int res = 0;
       sql = "insert into user (id, pw, name,email,join_date,tel,state,level ) values(?,?,?,?,?,?,0,2)";

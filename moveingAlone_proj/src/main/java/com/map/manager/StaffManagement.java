@@ -12,8 +12,15 @@ public class StaffManagement implements ManagerService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		ArrayList<UserDTO> mainData = new UserDAO().allUser();
+		int level = Integer.parseInt(request.getParameter("level"));
 		
+		ArrayList<UserDTO> mainData = new UserDAO().levelUser(level);
+		
+		if(level==1) {request.setAttribute("title", "기사");}
+		else {request.setAttribute("title", "고객");}
+		
+		
+		request.setAttribute("level", level);
 		request.setAttribute("mainData", mainData);
 		request.setAttribute("mainUrl", "manager/staffmanagement.jsp");
 	}
