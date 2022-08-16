@@ -28,6 +28,7 @@
     })
     $(".product .test").click(function(e){
 		
+		let item1 =[9],item2,item3,box;
 		e.preventDefault();
 		 for(let i =0;i<$(".product .productItem .item1").length;i++){
 	        console.log($(".product .productItem .item1")[i]);	
