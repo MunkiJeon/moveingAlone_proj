@@ -16,10 +16,10 @@
             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box5">매출 관리</button></h2>
             <div id="box5" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
-                    <a class="accordionList" href="StaffManagement">직원 조회</a>
-                    <a class="accordionList" href="StaffManagement">직원 추가</a>
-                    <a class="accordionList" href="StaffManagement">직원 수정</a>
-                    <a class="accordionList" href="StaffManagement">직원 삭제</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 추가</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 수정</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>StaffManagement">직원 삭제</a>
                 </div>
             </div>
         </div>
@@ -27,10 +27,10 @@
             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box7">매칭 관리</button></h2>
             <div id="box7" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
-                    <a class="accordionList" href="Matching">매칭 현황 조회</a>
-                    <a class="accordionList" href="Matching">매칭 현황 추가</a>
-                    <a class="accordionList" href="Matching">매칭 현황 수정</a>
-                    <a class="accordionList" href="Matching">매칭 현황 삭제</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Matching">매칭 현황 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Matching">매칭 현황 추가</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Matching">매칭 현황 수정</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Matching">매칭 현황 삭제</a>
                 </div>
             </div>
         </div>
@@ -48,10 +48,10 @@
             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box8">상담 관리</button></h2>
             <div id="box8" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
-                    <a class="accordionList" href="Talk">문의 조회</a>
-                    <a class="accordionList" href="Talk">문의 추가</a>
-                    <a class="accordionList" href="Talk">문의 수정</a>
-                    <a class="accordionList" href="Talk">문의 삭제</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 추가</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 수정</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 삭제</a>
                 </div>
             </div>
         </div>

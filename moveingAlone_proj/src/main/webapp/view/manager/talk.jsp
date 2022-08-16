@@ -46,7 +46,7 @@ function talkAjax(index){
 					str += decodeURIComponent(user[j]) ;
 					
 				}
-				str+="</p></li>"
+				str+="</p><div><button>답변</button><button>보류</button></div></li>"
 			}
 			str+="</ul>";
 			$(".talk .talkWrap").html(str);
