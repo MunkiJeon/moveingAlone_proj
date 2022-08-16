@@ -21,6 +21,8 @@ public class LoginReg implements LoginService {
 		 String pw = request.getParameter("pw");
 		HttpSession session = request.getSession();
 		int res = 0;
+		int pl=0;
+		int ma=0;
 		 for (UserDTO dto : list) {
 			if(dto.getId().equals(id)&&dto.getPw().equals(pw)) {
 				
@@ -29,14 +31,14 @@ public class LoginReg implements LoginService {
 				case 0:					
 					ArrayList<CalculateDTO> clist = new CalculateDAO().list();
 					for (CalculateDTO pr : clist) {
-						if(pr.getCal_type().equals("매출"))
-						res += pr.getPrice();
-						else res -= pr.getPrice();
+						if(pr.getCal_type().equals("매출")) {pl+=pr.getPrice();}
+						else {ma += pr.getPrice();}
 					}
 					request.setAttribute("clist", clist);
-					request.setAttribute("res", res);
+					request.setAttribute("pl", pl);
+					request.setAttribute("ma", ma);
 					request.setAttribute("config", "manager");
-					request.setAttribute("mainUrl", "manager/calculate.jsp");
+					request.setAttribute("mainUrl", "manager/sales.jsp");
 					break;
 				case 1:
 					request.setAttribute("config", "staff");

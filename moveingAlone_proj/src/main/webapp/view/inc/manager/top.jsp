@@ -38,9 +38,9 @@
             <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box6">정산 관리</button></h2>
             <div id="box6" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
-                    <a class="accordionList" href="Calculate">정산 조회</a>
-                    <a class="accordionList" href="Calculate?res=매출">매출 조회</a>
-                    <a class="accordionList" href="Calculate?res=매입">매입 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Calculate">정산 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Calculate?res=매출">매출 조회</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Calculate?res=매입">매입 조회</a>
                 </div>
             </div>
         </div>
