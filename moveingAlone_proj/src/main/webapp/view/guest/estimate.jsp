@@ -21,8 +21,8 @@
                     	</li>
                         <li class="address">
                             <h3>출/도착지를 입력해 주세요.</h3>
-                            <input type="text" placeholder="여기를 눌러서 출발지 주소 검색">
-                            <input type="text" placeholder="여기를 눌러서 도착지 주소 검색">
+                            <input type="text" placeholder="여기를 눌러서 출발지 주소 검색" name="start_point">
+                            <input type="text" placeholder="여기를 눌러서 도착지 주소 검색" name="end_point">
                         </li>
                         <li class="time">
                             <h3>픽업시간을 선택해 주세요.</h3>

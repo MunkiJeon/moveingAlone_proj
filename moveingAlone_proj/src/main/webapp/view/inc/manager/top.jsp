@@ -13,8 +13,8 @@
 <div class="sideWrap">
     <div class="accordion" id="boxs">
         <div class="accordion-item">
-            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box5">매출 관리</button></h2>
-            <div id="box5" class="accordion-collapse collapse" data-bs-parent="#boxs">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box1">직원 관리</button></h2>
+            <div id="box1" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="StaffManagement">직원 조회</a>
                     <a class="accordionList" href="StaffManagement">직원 추가</a>
@@ -24,8 +24,8 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box7">매칭 관리</button></h2>
-            <div id="box7" class="accordion-collapse collapse" data-bs-parent="#boxs">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box2">매칭 관리</button></h2>
+            <div id="box2" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="Matching">매칭 현황 조회</a>
                     <a class="accordionList" href="Matching">매칭 현황 추가</a>
@@ -35,8 +35,19 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box6">정산 관리</button></h2>
-            <div id="box6" class="accordion-collapse collapse" data-bs-parent="#boxs">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box3">견적 관리</button></h2>
+            <div id="box3" class="accordion-collapse collapse" data-bs-parent="#boxs">
+                <div class="accordion-body">
+                    <a class="accordionList" href="Matching">견적 조회</a>
+                    <a class="accordionList" href="Matching">견적 항목 추가</a>
+                    <a class="accordionList" href="Matching">견적 항목 수정</a>
+                    <a class="accordionList" href="Matching">견적 항목 삭제</a>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box4">정산 관리</button></h2>
+            <div id="box4" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="Calculate">정산 조회</a>
                     <a class="accordionList" href="Calculate">매출 조회</a>
@@ -45,8 +56,8 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box8">상담 관리</button></h2>
-            <div id="box8" class="accordion-collapse collapse" data-bs-parent="#boxs">
+            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#box5">상담 관리</button></h2>
+            <div id="box5" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="Talk">문의 조회</a>
                     <a class="accordionList" href="Talk">문의 추가</a>

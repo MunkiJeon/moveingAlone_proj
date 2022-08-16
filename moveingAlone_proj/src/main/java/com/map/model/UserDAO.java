@@ -71,6 +71,7 @@ public class UserDAO {
 				dto.setJoin_date(rs.getDate("join_date"));
 				dto.setTel(rs.getString("name"));
 				dto.setState(rs.getInt("state"));
+				dto.setLevel(rs.getInt("level"));
 				
 				res.add(dto);
 			}
@@ -82,7 +83,29 @@ public class UserDAO {
 		
 		return res;
 	}
-	
+	public int insert(UserDTO dto){
+      int res = 0;
+      sql = "insert into user (id, pw, name,email,join_date,tel,state,level ) values(?,?,?,?,?,?,0,2)";
+      try {
+		ptmt = con.prepareStatement(sql);
+		ptmt.setString(1, dto.getId());
+		ptmt.setString(2, dto.getPw());
+		ptmt.setString(3, dto.getName());
+		ptmt.setString(4, dto.getEmail());
+		ptmt.setDate(5, dto.getJoin_date());
+		ptmt.setString(6, dto.getTel());
+		
+		ptmt.executeUpdate();
+	} catch (SQLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}finally {
+		close();
+	}
+
+
+      return res;
+   }
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}
 		if(ptmt!=null)try {ptmt.close();} catch (SQLException e) {}

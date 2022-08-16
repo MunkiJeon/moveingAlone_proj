@@ -12,90 +12,90 @@
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-1</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-2</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-3</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-4</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-5</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-6</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-7</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-8</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대1-9</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item1">0</p>
                 </div>
             </li>
         </ul>
@@ -110,96 +110,94 @@
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-1</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
-                    <button class="productBtnM">-</button>
+                	<img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
-                <div class="productBtn">
-                    <button></button>
-                    <p>0</p>
-                </div>
-            </li>
-            <li class="productList">
-                <figure class="productIcon">
-                    <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
-                </figure>
-                <p>침대</p>
+                <p>침대2-2</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-3</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-4</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-5</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-6</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-7</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대2-8</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item2">0</p>
+                </div>
+            </li>
+            <li class="productList">
+                <figure class="productIcon">
+                    <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
+                </figure>
+                <p>침대2-9</p>
+                <div class="productBtn">
+                    <button class="productBtnM">-</button>
+                    <p class="item2">0</p>
                 </div>
             </li>
         </ul>
     </section>
-
-   
 
     <section class="product">
         <div class="line"></div>
@@ -209,90 +207,90 @@
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-1</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-2</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-3</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-4</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-5</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-6</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-7</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-8</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
             <li class="productList">
                 <figure class="productIcon">
                     <img src="<c:url value='/resource/image/'/>gg1.png" alt="">
                 </figure>
-                <p>침대</p>
+                <p>침대3-9</p>
                 <div class="productBtn">
                     <button class="productBtnM">-</button>
-                    <p>0</p>
+                    <p class="item3">0</p>
                 </div>
             </li>
         </ul>
@@ -329,7 +327,13 @@
                 </p>
             </div>
         </div>
+        <input type="text" style="display:none" name="item1" placeholder="aaa">
+        <input type="text" style="display:none" name="item2" placeholder="aaa">
+        <input type="text" style="display:none" name="item3" placeholder="aaa">
+        <input type="text" style="display:none" name="box" placeholder="aaa">
+        
        	<button type="submit" class="detailNext">다음</button>
+       	<button type="button" class="test">테스트</button>
     </section>
     </form>
     
