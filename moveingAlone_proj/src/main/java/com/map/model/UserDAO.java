@@ -112,29 +112,51 @@ public class UserDAO {
 		
 		return res;
 	}
+
 	public int insert(UserDTO dto){
-      int res = 0;
-      sql = "insert into user (id, pw, name,email,join_date,tel,state,level ) values(?,?,?,?,?,?,0,2)";
-      try {
-		ptmt = con.prepareStatement(sql);
-		ptmt.setString(1, dto.getId());
-		ptmt.setString(2, dto.getPw());
-		ptmt.setString(3, dto.getName());
-		ptmt.setString(4, dto.getEmail());
-		ptmt.setDate(5, dto.getJoin_date());
-		ptmt.setString(6, dto.getTel());
+		sql = "insert into user (id, pw, name,email,join_date,tel,state,level ) values(?,?,?,?,sysdate(),?,0,?)";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.setString(2, dto.getPw());
+			ptmt.setString(3, dto.getName());
+			ptmt.setString(4, dto.getEmail());
+			ptmt.setString(5, dto.getTel());
+			ptmt.setInt(6, dto.getLevel());
+			
+			return ptmt.executeUpdate();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			close();
+		}
 		
-		ptmt.executeUpdate();
-	} catch (SQLException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}finally {
-		close();
+		
+		return 0;
 	}
-
-
-      return res;
-   }
+	public int update(UserDTO dto){
+		sql = "update user set pw = ? ,name = ? ,email = ? where id = ?";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getPw());
+			ptmt.setString(2, dto.getName());
+			ptmt.setString(3, dto.getEmail());
+			ptmt.setString(4, dto.getId());
+			
+			return ptmt.executeUpdate();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return 0;
+	}
+	
+	
+	
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}
 		if(ptmt!=null)try {ptmt.close();} catch (SQLException e) {}
