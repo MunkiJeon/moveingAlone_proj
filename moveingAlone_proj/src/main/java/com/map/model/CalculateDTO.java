@@ -7,7 +7,7 @@ public class CalculateDTO {
 	  String po_code; 
 	  String po_wname; 
 	  String po_name; 
-	  int Quantity; 
+	  int quantity; 
 	  int unit_price; 
 	  int price; 
 	  String cal_type;
@@ -36,10 +36,10 @@ public class CalculateDTO {
 		this.po_name = po_name;
 	}
 	public int getQuantity() {
-		return Quantity;
+		return quantity;
 	}
 	public void setQuantity(int quantity) {
-		Quantity = quantity;
+		this.quantity = quantity;
 	}
 	public int getUnit_price() {
 		return unit_price;

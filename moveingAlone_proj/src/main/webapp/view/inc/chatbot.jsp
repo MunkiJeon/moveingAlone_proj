@@ -54,12 +54,10 @@ $(function(){
 				for(let i =0;i<data.length;i++){
 					if(i%2==0){
 							string+="<p class='user'>"+decodeURIComponent(data[i])+"</p>";
-							/* $(".chat_window").append("<p class='user'>"+decodeURIComponent(data[i])+"</p>") */
 						
 					}else{
 						if(data[i]!="null"){	
 							string+="<p class='manager'>"+decodeURIComponent(data[i])+"</p>";
-							/* $(".chat_window").append("<p class='manager'>"+decodeURIComponent(data[i])+"</p>") */
 						}
 						
 					}

@@ -26,7 +26,6 @@ public class ManagerController extends HttpServlet {
 		
 		request.setAttribute("config", "manager");
 		try {
-			System.out.println("com.map.manager."+service);
 			ManagerService as = (ManagerService)Class.forName("com.map.manager."+service).newInstance();
 			as.execute(request, response);
 		} catch (Exception e) {
