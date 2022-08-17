@@ -96,3 +96,5 @@ values
 
 '2022-03-16' '2022-10-16'
 select * from calculate where c_date > '2022-09-16'  and c_date < '2022-10-16';
+
+select * from user where id = 'dv4'

@@ -15,7 +15,6 @@ public class LoginReg implements LoginService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("mainUrl", "login/login.jsp");
 		 ArrayList<UserDTO> list = new UserDAO().allUser();
 		 String id = request.getParameter("id");
 		 String pw = request.getParameter("pw");
@@ -23,6 +22,7 @@ public class LoginReg implements LoginService {
 		int res = 0;
 		int pl=0;
 		int ma=0;
+		request.setAttribute("mainUrl", "login/login.jsp");
 		 for (UserDTO dto : list) {
 			if(dto.getId().equals(id)&&dto.getPw().equals(pw)) {
 				

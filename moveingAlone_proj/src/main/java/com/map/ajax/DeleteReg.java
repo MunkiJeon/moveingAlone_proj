@@ -16,30 +16,28 @@ import com.map.model.CalculateDTO;
 import com.map.model.UserDAO;
 import com.map.model.UserDTO;
 
-public class Modify implements AjaxService {
+public class DeleteReg implements AjaxService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 	
-		//System.out.println(request.getParameter("id"));
+		String[] idList= request.getParameter("id").split(",");
 		
 		
 		UserDTO dto = new UserDAO().oneUser(request.getParameter("id"));
+		
+		UserDAO dao = new UserDAO();
+		
+		for (String id : idList) {
+			dao.managerDelete(id);
+		}
+		dao.close();
 		JSONObject data = new JSONObject();
-//		System.out.println(dto.getId());
-//		System.out.println(dto.getPw());
-//		System.out.println(dto.getName());
-//		System.out.println(dto.getEmail());
-//		System.out.println(dto.getTel());
 //		
 		try {
 		
-		data.put("id",URLEncoder.encode(dto.getId(),"UTF-8"));
-		data.put("pw",URLEncoder.encode(dto.getPw(),"UTF-8"));
-		data.put("name",URLEncoder.encode(dto.getName(),"UTF-8"));
-		data.put("email",URLEncoder.encode(dto.getEmail(),"UTF-8"));
-		data.put("tel",URLEncoder.encode(dto.getTel(),"UTF-8"));
+		data.put("chk","true");
 			
 		String res = data.toString();
 		

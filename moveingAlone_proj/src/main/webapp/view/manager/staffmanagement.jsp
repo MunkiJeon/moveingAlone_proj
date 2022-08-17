@@ -5,7 +5,9 @@
 <link rel="stylesheet" href="<c:url value='/resource'/>/css/manager/staffmanagement.css">
 <style>
 .stepsign{position: fixed;bottom: -100vh;left: 50%;transform:translate(-50%,50%) ;width: 600px;background: white;padding: 30px;border-radius: 15px;}
-.popupbg{position: fixed;background-color: rgba(0,0, 0, 0.3);width: 100%;height: 100%;display: none;top:0;left:0;}</style>
+.popupbg{position: fixed;background-color: rgba(0,0, 0, 0.3);width: 100%;height: 100%;display: none;top:0;left:0;}
+.delete{position: fixed;bottom: -100vh;left: 50%;transform:translate(-50%,50%) ;width: 600px;background: white;padding: 30px;border-radius: 15px;}
+</style>
 <div class="popupbg"></div>
 <div class="managerWrap">
 	<h2>${title } 관리</h2>
@@ -13,7 +15,7 @@
         <tr>
             <td colspan="5" align="center">
                 <div id="SearchBox">
-                    이름: <input type="text" id="search_title" name="search_name" placeholder="${title }명">
+                    이름: <input type="text" id="search_title" name="search_name" placeholder="${title}명">
                     아이디: <input type="text"  id="search_id" name="search_id" placeholder="아이디">
                     입사일:<input type="date" id="search_date" name="search_date" placeholder="입사일">
                     <button id="searchBtn">검색</button>    
@@ -44,7 +46,7 @@
 </div>
 <div class="delete">
 	<p>삭제 하시겠습니까?</p>
-	<button class="deletebtn">삭제</button>
+	<button class="deletebtnreg">삭제</button>
 	<button class="cencelbtn">취소</button>
 </div>
 <div class="stepsign">
@@ -131,7 +133,8 @@
 	    })
         $(".popupbg").click(function(){
             $(this).fadeOut(500);
-            $(".stepsign").stop().animate({bottom:"-100vh"},500)
+            $(".stepsign").stop().animate({bottom:"-100vh"},500);
+            $(".delete").stop().animate({bottom:"-100vh"},500);
             add=false;
             modify=false;
         })
@@ -169,7 +172,6 @@
 
 			
             $.ajax({
-         	
 	         	url:"<c:url value='/ajax/Modify'/>",
 	         	type:'POST',
 	 			data:{id:id},
@@ -190,7 +192,23 @@
 	        if(modify){    
 		        $(".stepsign").submit(function(e){
 	                e.preventDefault();
-			
+	                $.ajax({
+	                 	
+	    	         	url:"<c:url value='/ajax/ModifyReg'/>",
+	    	         	type:'POST',
+	    	 			data:{id:id,pw:$("#pw").val(),name:$("#name").val(),email:$("#email").val(),tel:$("#tel").val()},
+	    	 			async:false,
+	    	 			dataType:'json',
+	    	 			success:function(data){
+	    	 				
+			  				if(data[0]=="false"){alert("실패")}
+			  				else{alert("성공");
+			  					location.href="?level="+level;
+			  				}
+	    	 				
+	    	 			},
+	    	 			error:function(e){console.log(e)}
+	    	    	})  
 		            	
 		        })
 	        }
@@ -204,36 +222,39 @@
         
         
         
-           $(".delete").click(function(e){
+           $("#deleteBtn").click(function(e){
 	            e.preventDefault();
 	            let id = "";
+	            let cnt= 0;
 	            for(let i=0;i<$(".idchktr").length;i++){
 	            	if($(".idchktr").eq(i).find(".dataChk").is(':checked')){
 	            		cnt++;
-	            		id += $(".idchktr").eq(i).find(".dataChk").val()+","
+	            		if($(".idchktr").length-1 == i){
+	            		id += $(".idchktr").eq(i).find(".dataChk").val();}
+	            		else{id += $(".idchktr").eq(i).find(".dataChk").val()+","}
 	            	}
 	            }
-  
-		        $(".stepsign").submit(function(e){
+  				if(cnt==0){
+  					alert("체크 사항이 없습니다.");
+  					return;
+  				}
+  	            $(".delete").stop().animate({bottom:"50%"},500);
+  	            $(".popupbg").fadeIn(500);
+		        $(".deletebtnreg").click(function(e){
 	                e.preventDefault();
 
 		            $.ajax({
 		         	
-			         	url:"<c:url value='/ajax/Modify'/>",
+			         	url:"<c:url value='/ajax/DeleteReg'/>",
 			         	type:'POST',
 			 			data:{id:id},
 			 			async:false,
 			 			dataType:'json',
 			 			success:function(data){
-			 				
-			 				$("#id").val(decodeURIComponent(data.id));
-			 				$("#pw").val(decodeURIComponent(data.pw));
-			 				$("#name").val(decodeURIComponent(data.name));
-			 				$("#email").val(decodeURIComponent(data.email));
-			 				$("#tel").val(decodeURIComponent(data.tel));
-			 				
+							alert("성공"); 	
+							location.href="?level="+level;
 			 			},
-			 			error:function(e){console.log(e)}
+			 			error:function(e){alert("실패")}
 			    	})
 		            	
 		        })

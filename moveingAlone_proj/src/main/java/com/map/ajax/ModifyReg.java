@@ -16,30 +16,34 @@ import com.map.model.CalculateDTO;
 import com.map.model.UserDAO;
 import com.map.model.UserDTO;
 
-public class Modify implements AjaxService {
+public class ModifyReg implements AjaxService {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 	
-		//System.out.println(request.getParameter("id"));
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String tel = request.getParameter("tel");
 		
 		
 		UserDTO dto = new UserDAO().oneUser(request.getParameter("id"));
-		JSONObject data = new JSONObject();
-//		System.out.println(dto.getId());
-//		System.out.println(dto.getPw());
-//		System.out.println(dto.getName());
-//		System.out.println(dto.getEmail());
-//		System.out.println(dto.getTel());
-//		
-		try {
+		JSONArray data = new JSONArray();
+		dto.setId(id);
+		dto.setPw(pw);
+		dto.setName(name);
+		dto.setEmail(email);
+		dto.setTel(tel);
 		
-		data.put("id",URLEncoder.encode(dto.getId(),"UTF-8"));
-		data.put("pw",URLEncoder.encode(dto.getPw(),"UTF-8"));
-		data.put("name",URLEncoder.encode(dto.getName(),"UTF-8"));
-		data.put("email",URLEncoder.encode(dto.getEmail(),"UTF-8"));
-		data.put("tel",URLEncoder.encode(dto.getTel(),"UTF-8"));
+		
+		int cnt = new UserDAO().modify(dto);
+		try {
+			System.out.println(cnt);
+			if(cnt>0) {
+				data.add("true");
+			}else {data.add("false");}
 			
 		String res = data.toString();
 		

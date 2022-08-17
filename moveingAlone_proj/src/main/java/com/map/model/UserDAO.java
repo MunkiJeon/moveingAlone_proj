@@ -157,13 +157,14 @@ public class UserDAO {
 	
 	public  int modify(UserDTO dto) {
 		   try {
-			sql = "update user set pw = ? ,  email = ? , tel = ? where id = ?";
+			sql = "update user set pw = ? ,  email = ? , tel = ? ,name = ? where id = ?";
 		
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.pw);
 			ptmt.setString(2, dto.email);
 			ptmt.setString(3, dto.tel);
-			ptmt.setString(4, dto.id);
+			ptmt.setString(4, dto.name);
+			ptmt.setString(5, dto.id);
 			return ptmt.executeUpdate();
 		   } catch (Exception e) {
 			   e.printStackTrace();
@@ -192,6 +193,21 @@ public class UserDAO {
 		}
 		return 0;
 	}
+	public int managerDelete(String id) {
+		
+		try {
+			sql = "delete from user where id = ?";
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1,id);
+			
+			return ptmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
 	
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}
