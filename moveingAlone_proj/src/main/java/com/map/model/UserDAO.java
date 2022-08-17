@@ -155,7 +155,43 @@ public class UserDAO {
 		return 0;
 	}
 	
+	public  int modify(UserDTO dto) {
+		   try {
+			sql = "update user set pw = ? ,  email = ? , tel = ? where id = ?";
+		
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.pw);
+			ptmt.setString(2, dto.email);
+			ptmt.setString(3, dto.tel);
+			ptmt.setString(4, dto.id);
+			return ptmt.executeUpdate();
+		   } catch (Exception e) {
+			   e.printStackTrace();
+		}finally {
+			close();
+		}
+		   return 0;
+	   }
 	
+	public int delete(UserDTO dto) {
+		
+		try {
+			sql = "delete from user where id = ? and pw = ?";
+			
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1,dto.id);
+			System.out.println(dto.id+"------------------");
+			ptmt.setString(2, dto.pw);
+			System.out.println(dto.pw+"------------------");
+			
+			return ptmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return 0;
+	}
 	
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}

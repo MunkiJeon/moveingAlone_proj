@@ -1,7 +1,6 @@
-package com.map.guest;
+package com.map.staff;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,32 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.map.ajax.AjaxService;
+import com.map.guest.GuestService;
 
 /**
- * Servlet implementation class GuestController
+ * Servlet implementation class StaffContrller
  */
-@WebServlet("/guest/*")
-public class GuestController extends HttpServlet {
+@WebServlet("/staff/*")
+public class StaffContrller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	HashMap<String, String> nonService = new HashMap<String, String>();
-    public GuestController() {
+       
+  
+    public StaffContrller() {
         super();
-        nonService.put("Out", "guest/out.jsp");
+        
     }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String service = request.getRequestURI().substring((request.getContextPath()+"/guest/").length());
-
-		System.out.println(service);
-		request.setAttribute("config", "guest");
+		String service = request.getRequestURI().substring((request.getContextPath()+"/staff/").length());
+		request.setAttribute("config", "staff");
 		try {
-			if(nonService.get(service)!=null) {
-				request.setAttribute("mainUrl",nonService.get(service));
-			}else {
-			GuestService as = (GuestService)Class.forName("com.map.guest."+service).newInstance();
-			as.execute(request, response);
-			}
+			StaffService ss = (StaffService)Class.forName("com.map.staff."+service).newInstance();
+			ss.execute(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,7 +40,7 @@ public class GuestController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

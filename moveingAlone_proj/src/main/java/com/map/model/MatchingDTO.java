@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 public class MatchingDTO {
-	int res_num;
+	int res_num,cost;
 	String user_ID;
 	String driver_ID;
 	Date reservat_date;
@@ -97,6 +97,12 @@ public class MatchingDTO {
 	}
 	public void setReq_date(Date req_date) {
 		this.req_date = req_date;
+	}
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 	  
 	

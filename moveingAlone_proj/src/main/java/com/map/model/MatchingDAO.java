@@ -93,6 +93,78 @@ public class MatchingDAO {
 		return res;
 	}
 	
+	public ArrayList<MatchingDTO> oneUserForStaff(String id) {
+		ArrayList<MatchingDTO> res = new ArrayList<MatchingDTO>();
+		sql = "select * from matching where driver_ID = ?";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, id);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				MatchingDTO dto = new MatchingDTO();
+				
+				dto = new MatchingDTO();
+				dto.setRes_num(rs.getInt("res_num"));
+				dto.setUser_ID(rs.getString("user_ID"));
+				dto.setDriver_ID(rs.getString("driver_ID"));
+				dto.setReservat_date(rs.getDate("reservat_date"));
+				dto.setStart_point(rs.getString("start_point"));
+				dto.setStart_op(rs.getString("start_op"));
+				dto.setEnd_point(rs.getString("end_point"));
+				dto.setEnd_op(rs.getString("end_op"));
+				dto.setLuggage_list(rs.getString("luggage_list"));
+				dto.setBox(rs.getInt("box"));
+				dto.setRequests(rs.getString("requests"));
+				dto.setReq_state(rs.getInt("req_state"));
+				dto.setReq_date(rs.getDate("req_date"));
+				dto.setCost(rs.getInt("cost"));
+				res.add(dto);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
+	
+	public ArrayList<MatchingDTO> oneUserForGuest(String id) {
+		ArrayList<MatchingDTO> res = new ArrayList<MatchingDTO>();
+		sql = "select * from matching where user_ID = ?";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, id);
+			rs = ptmt.executeQuery();
+			while(rs.next()) {
+				MatchingDTO dto = new MatchingDTO();
+				
+				dto = new MatchingDTO();
+				dto.setRes_num(rs.getInt("res_num"));
+				dto.setUser_ID(rs.getString("user_ID"));
+				dto.setDriver_ID(rs.getString("driver_ID"));
+				dto.setReservat_date(rs.getDate("reservat_date"));
+				dto.setStart_point(rs.getString("start_point"));
+				dto.setStart_op(rs.getString("start_op"));
+				dto.setEnd_point(rs.getString("end_point"));
+				dto.setEnd_op(rs.getString("end_op"));
+				dto.setLuggage_list(rs.getString("luggage_list"));
+				dto.setBox(rs.getInt("box"));
+				dto.setRequests(rs.getString("requests"));
+				dto.setReq_state(rs.getInt("req_state"));
+				dto.setReq_date(rs.getDate("req_date"));
+				dto.setCost(rs.getInt("cost"));
+				res.add(dto);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return res;
+	}
+	
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}
 		if(ptmt!=null)try {ptmt.close();} catch (SQLException e) {}
