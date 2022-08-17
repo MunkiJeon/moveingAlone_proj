@@ -193,6 +193,24 @@ public class UserDAO {
 		return 0;
 	}
 	
+	public int staffState(UserDTO dto){
+		sql = "update user set state = ? where id = ?";
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setInt(1, dto.getState());
+			ptmt.setString(2, dto.getId());
+			
+			return ptmt.executeUpdate();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return 0;
+	}
+	
 	public void close() {
 		if(rs!=null)try {rs.close();} catch (SQLException e) {}
 		if(ptmt!=null)try {ptmt.close();} catch (SQLException e) {}
