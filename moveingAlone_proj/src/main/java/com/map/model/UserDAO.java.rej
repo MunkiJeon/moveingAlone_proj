@@ -1,0 +1,9 @@
+diff a/moveingAlone_proj/src/main/java/com/map/model/UserDAO.java b/moveingAlone_proj/src/main/java/com/map/model/UserDAO.java	(rejected hunks)
+@@ -163,7 +163,6 @@
+ 			ptmt.setString(1, dto.pw);
+ 			ptmt.setString(2, dto.email);
+ 			ptmt.setString(3, dto.tel);
+-			ptmt.setString(4, dto.id);
+ 			ptmt.setString(4, dto.name);
+ 			ptmt.setString(5, dto.id);
+ 			return ptmt.executeUpdate();

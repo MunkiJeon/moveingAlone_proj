@@ -16,9 +16,59 @@
  }
  
  #container{
+ 	margin-top:50px;
  	display: flex;
- 	
+ 	width:100%;
+ 	justify-content: center;
+ 	align-items: center;
  }
+ 
+ .toggle-switch input[type=checkbox]{
+ 	display: none;
+ }
+ 
+ .toggle-track{
+ 	display: inline-block;
+ 	position: relative;
+ 	width:60px;
+ 	height: 25px;
+ 	border-radius: 60px;
+ 	background: #8b8b8b;
+ }
+ .toggle-track:before{
+  content:'';
+  display: block;
+  position: absolute;
+  top: -6px;
+  left: -15px;
+  width: 27px;
+  height: 27px; 
+  margin: 5px;
+  background: #fff;
+  border-radius:100%;
+  border:1px solid #8b8b8b;
+  transition:left 0.3s;
+}
+ 
+ .toggle-switch input[type=checkbox] + label .toggle-track:after{
+  content:'OFF';
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  color: #fff;
+}
+ 
+ .toggle-switch input[type=checkbox]:checked + label .toggle-track{
+  background: #FA9AA6;
+}
+.toggle-switch input[type=checkbox]:checked + label .toggle-track:before{
+  left: 30px;
+  border:1px solid #FA9AA6;
+}
+.toggle-switch input[type=checkbox]:checked + label .toggle-track:after{
+  content:'ON';
+  left: 5px;
+}
  
  .menuI{
  	left:0px;
@@ -90,6 +140,7 @@ $(function () {
 	$(".tableM .section").eq(index).show();
 	$(".menuI2").click(function() {
 		index = $(this).index()
+
 		/* $.ajax({
 			url:"<c:url value='/ajax/Love'/>",
 			type:"POST",
@@ -104,8 +155,10 @@ $(function () {
 				
 			}
 		})*/
+		
+		
 		$(".tableM .section").hide();
-		$(".tableM .section").eq(index).show();l
+		$(".tableM .section").eq(index).show();
 	})
 
 	$(".menuI>.box>label").each(function () {
@@ -116,6 +169,28 @@ $(function () {
 			"background-position":"center",
 			"color":"white"})
 	})
+	var Values = [];
+	$("#chkTog4").click(function() {
+		let chk = 0;
+		if($(this).is(":checked")){
+			chk=1;
+		}
+		$.ajax({
+			url:'<c:url value="/ajax/AjaxOnOff"/>',
+			type:"POST",
+			data:{bal:chk},
+			async:false,
+			dataType:'json',
+			success:function(data){
+				console.log(data)
+			},
+			error:function(e){
+				console.log(e)
+			}
+		})
+	})
+	
+	
 })
 </script>
 
@@ -125,13 +200,20 @@ $(function () {
 
 
 <div class="menuI">
-	<div class="box">
-		
-	
-		<label class="menuI2" id ="w1">내 정보</label>
-		<label class="menuI2" id ="w2">매칭정보</label>
-		<label class="menuI2" id ="w3">매출</label>
+	<div id="container">
+		<div class="toggle-switch">
+			<input type="checkbox" id="chkTog4">
+			<label for="chkTog4">
+				<span class="toggle-track"></span>
+		</label>
 	</div>
+</div>
+
+		<div class="box">
+			<label class="menuI2" id ="w1">내 정보</label>
+			<label class="menuI2" id ="w2">매칭정보</label>
+			<label class="menuI2" id ="w3">매출</label>
+		</div>
 </div>
 
 <div class="mar"><jsp:include page="../inc/staff/top.jsp"/></div>
@@ -226,7 +308,7 @@ $(function () {
 			<table class="section">
 				<tr>
 					<td  class="oo">
-						<h1>내 정보</h1>
+						<h1>매출</h1>
 					</td>
 				</tr>
 				<tr>
