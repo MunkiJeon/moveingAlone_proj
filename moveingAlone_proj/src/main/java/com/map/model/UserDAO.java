@@ -6,14 +6,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+
 
 public class UserDAO {
 	Connection con;
 	PreparedStatement ptmt;
 	ResultSet rs;
 	String sql;
+	
+	private static UserDAO instance;
+
+	public static UserDAO getInstance() {
+		if (instance == null) {
+			instance = new UserDAO();
+		}
+		return instance;
+	}
 	
 	public UserDAO() {
 		try {
@@ -23,6 +36,15 @@ public class UserDAO {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			Context initContext = new InitialContext();
+			Context envContext = (Context) initContext.lookup("java:comp/env"); 
+			DataSource ds = (DataSource) envContext.lookup("qwer");
+			con = ds.getConnection(); 
+			System.out.println("생성자에서 conn :" + con);
+		} catch (NamingException e) {
+			System.out.println("CategoryDao 생성자에서 컨넥션 객체를 얻다가 오류 발생");
+		} catch (SQLException e) {
+			System.out.println("CategoryDao 생성자에서 컨넥션 객체를 얻다가 오류 발생");
 		}
 		
 	}
@@ -35,6 +57,7 @@ public class UserDAO {
 			ptmt.setString(1, id);
 			rs = ptmt.executeQuery();
 			while(rs.next()) {
+			if(rs.next()) {
 				dto = new UserDTO();
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
@@ -46,6 +69,7 @@ public class UserDAO {
 				dto.setLevel(rs.getInt("level"));
 			}
 		}catch (Exception e) {
+			System.out.println("getMemberById() 실행중 에러");
 			e.printStackTrace();
 		}finally {
 			close();
@@ -53,6 +77,7 @@ public class UserDAO {
 		
 		return dto;
 	}
+	
 	
 	public ArrayList<UserDTO> allUser() {
 		ArrayList<UserDTO> res = new ArrayList<UserDTO>();
@@ -115,6 +140,7 @@ public class UserDAO {
 
 	public int insert(UserDTO dto){
 		sql = "insert into user (id, pw, name,email,join_date,tel,state,level ) values(?,?,?,?,sysdate(),?,0,?)";
+		sql = "insert into user (id, pw, name,email,join_date,tel,state,level ) values(?,?,?,?,sysdate(),?,0,2)";
 		try {
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, dto.getId());
