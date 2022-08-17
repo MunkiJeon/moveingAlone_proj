@@ -22,17 +22,17 @@ public class Modify implements AjaxService {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 	
-		//System.out.println(request.getParameter("id"));
+		System.out.println(request.getParameter("id"));
 		
 		
 		UserDTO dto = new UserDAO().oneUser(request.getParameter("id"));
 		JSONObject data = new JSONObject();
-//		System.out.println(dto.getId());
-//		System.out.println(dto.getPw());
-//		System.out.println(dto.getName());
-//		System.out.println(dto.getEmail());
-//		System.out.println(dto.getTel());
-//		
+		System.out.println(dto.getId());
+		System.out.println(dto.getPw());
+		System.out.println(dto.getName());
+		System.out.println(dto.getEmail());
+		System.out.println(dto.getTel());
+		
 		try {
 		
 		data.put("id",URLEncoder.encode(dto.getId(),"UTF-8"));

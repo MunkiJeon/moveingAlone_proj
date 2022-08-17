@@ -68,14 +68,7 @@
             <div id="box5" class="accordion-collapse collapse" data-bs-parent="#boxs">
                 <div class="accordion-body">
                     <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 조회</a>
-                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 추가</a>
-                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 수정</a>
-                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">문의 삭제</a>
-                <div class="accordion-body">
-                    <a class="accordionList" href="StaffManagement">직원 조회</a>
-                    <a class="accordionList" href="StaffManagement">직원 추가</a>
-                    <a class="accordionList" href="StaffManagement">직원 수정</a>
-                    <a class="accordionList" href="StaffManagement">직원 삭제</a>
+                    <a class="accordionList" href="<c:url  value='/manager/'/>Talk">자동 답변</a>
                 </div>
             </div>
         </div>

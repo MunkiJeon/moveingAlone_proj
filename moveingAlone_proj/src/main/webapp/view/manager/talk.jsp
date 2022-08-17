@@ -8,53 +8,85 @@
             <button>고객</button>
             <button>직원</button>
         </div>
-        <ul class="state">
-            <li class="stateItem">
-                대기 
-            </li>
-            <li class="stateItem">
-                보류
-            </li>
-            <li class="stateItem">
-                완료 
-            </li>
-        </ul>
         <div class="line"></div>
-        <div class="talkWrap">
-        </div>
+        <table class="talkWrap">
+        
+        	<tr>
+        		<td>고객 아이디</td>
+        		<td>문의</td>
+        		<td>답변</td>
+        		<td>상태</td>
+        	</tr>
+        </table>
     </div>
 </div>
+
 <script>
 $(function(){
-let index = 1;
-talkAjax(index);
-function talkAjax(index){
-	$.ajax({
-		url:'<c:url value="/ajax/InquiryList"/>',
-		type:'GET',
-		data:{idnex:index},
-		async:false,
-		dataType:'json',	//지정하지 않으면 문자열로 처리
-		success:function(data){
-			console.log(data)
-			let str = "<ul class='userlist'>"
-			for(let i = 0; i<data.length;i++){
+	let index = 1;
+	talkAjax(index);
+	
+	function talkAjax(index){
+		$.ajax({
+			url:'<c:url value="/ajax/InquiryList"/>',
+			type:'POST',
+			data:{idnex:index},
+			async:false,
+			dataType:'json',	//지정하지 않으면 문자열로 처리
+			success:function(data){
+				console.log(data)
+				let str = `<tr>
+					<td>no</td>
+	        		<td>고객 아이디</td>
+	        		<td>문의</td>
+	        		<td>답변</td>
+	        		<td>상태</td>
+	        	</tr>`;
+				for(let i = 0; i<data.length;i++){
+					let answer = decodeURIComponent(data[i].answer);
+					let res = "완료";
+					if(data[i].answer==""){	
+						answer = "<input type='text' class='answer'>";
+						res = "<button class='inquiryBtn'>답변</button>";
+					}
+					str+="<tr><td>"+data[i].no+
+						 "</td><td class='inquiryID'>"+decodeURIComponent(data[i].id)+
+						 "</td><td class='inquiryContents'>"+decodeURIComponent(data[i].contents)+
+						 "</td><td class='inquiryText'>"+answer+
+						 "</td><td class='inquiryTd'>"+res+
+						 "</td></tr>";
+				} 
 				
-				let user = data[i].split(":");
-				str+= "<li class='item'><p>"+decodeURIComponent(user[0])+"</p><p>"
-				for (let j = 1; j < user.length; j++) {
-					str += decodeURIComponent(user[j]) ;
-					
-				}
-				str+="</p><div><button>답변</button><button>보류</button></div></li>"
+				$(".talk .talkWrap").html(str);
+				
+				$(".talk .talkWrap .inquiryBtn").click(function(){
+					let thisEl = $(this);
+					let addData = $(this).parent().siblings(".inquiryText").find(".answer").val(); 
+					let id = $(this).parent().siblings(".inquiryID").html().trim(); 
+					let contents = $(this).parent().siblings(".inquiryContents").html().trim(); 
+	
+				$.ajax({
+					url:'<c:url value="/ajax/InquiryReg"/>',
+					type:'POST',
+					data:{addData:addData,id:id,contents},
+					async:false,
+					dataType:'json',	//지정하지 않으면 문자열로 처리
+					success:function(data){
+						if(data.cnt>0){
+							thisEl.parent().siblings(".inquiryText").html(addData);
+							thisEl.parent().html("완료");
+						}
+					},
+					error:function(e){
+						console.log(e.responseText);
+					}
+					});
+				})
+			},
+			error:function(e){
+				console.log(e.responseText);
 			}
-			str+="</ul>";
-			$(".talk .talkWrap").html(str);
-		},
-		error:function(e){
-			console.log(e.responseText);
-		}
-	})
+		})
 	}
 })
 </script>
