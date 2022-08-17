@@ -1,0 +1,9 @@
+diff a/moveingAlone_proj/src/main/java/com/map/login/SignUpReg.java b/moveingAlone_proj/src/main/java/com/map/login/SignUpReg.java	(rejected hunks)
+@@ -4,6 +4,7 @@
+ import javax.servlet.http.HttpServletResponse;
+ 
+ import com.map.model.UserDAO;
++import com.map.model.UserDTO;
+ 
+ public class SignUpReg implements LoginService {
+ 
