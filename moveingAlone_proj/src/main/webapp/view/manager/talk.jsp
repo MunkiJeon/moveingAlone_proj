@@ -8,20 +8,16 @@
             <button>고객</button>
             <button>직원</button>
         </div>
-        <ul class="state">
-            <li class="stateItem">
-                대기 
-            </li>
-            <li class="stateItem">
-                보류
-            </li>
-            <li class="stateItem">
-                완료 
-            </li>
-        </ul>
         <div class="line"></div>
-        <div class="talkWrap">
-        </div>
+        <table class="talkWrap">
+        
+        	<tr>
+        		<td>고객 아이디</td>
+        		<td>문의</td>
+        		<td>답변</td>
+        		<td>상태</td>
+        	</tr>
+        </table>
     </div>
 </div>
 <script>
@@ -37,18 +33,17 @@ function talkAjax(index){
 		dataType:'json',	//지정하지 않으면 문자열로 처리
 		success:function(data){
 			console.log(data)
-			let str = "<ul class='userlist'>"
+			let str = ""
 			for(let i = 0; i<data.length;i++){
 				
 				let user = data[i].split(":");
-				str+= "<li class='item'><p>"+decodeURIComponent(user[0])+"</p><p>"
+				str+= "<tr class='item'><td>"+decodeURIComponent(user[0])+"</td><td>"
 				for (let j = 1; j < user.length; j++) {
 					str += decodeURIComponent(user[j]) ;
 					
 				}
-				str+="</p><div><button>답변</button><button>보류</button></div></li>"
+				str+="</td><td><button class=''>답변</button></td><td>aa</td></tr>"
 			}
-			str+="</ul>";
 			$(".talk .talkWrap").html(str);
 		},
 		error:function(e){
