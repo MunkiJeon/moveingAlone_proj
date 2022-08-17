@@ -52,6 +52,26 @@ public class InquiryDAO {
 		
 		return res;
 	}
+	public int modify(InquiryDTO dto) {
+		ArrayList<InquiryDTO> res = new ArrayList<InquiryDTO>();
+		
+		sql = "update inquiry set answer = ? where id = ? AND contents = ?";
+		
+		try {
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, dto.getId());
+			ptmt.setString(2, dto.getAnswer());
+			ptmt.setString(3, dto.getContents());
+			System.out.println(sql);
+			return ptmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return 0;
+	}
 	
 	public ArrayList<InquiryDTO> answer() {
 		ArrayList<InquiryDTO> res = new ArrayList<InquiryDTO>();

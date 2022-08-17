@@ -93,6 +93,11 @@ values
     ('2022-08-21','a001','이사','일반이사',3,100000,200000,'매출',22080101);
 
 
-
+update inquiry set answer = '답변 성공' where id = 'test00' AND contents = ''
+   
+   
 '2022-03-16' '2022-10-16'
 select * from calculate where c_date > '2022-09-16'  and c_date < '2022-10-16';
+
+
+ALTER TABLE inquiry ADD COLUMN no INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;

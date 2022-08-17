@@ -28,8 +28,14 @@ public class InquiryList implements AjaxService {
 		
 		
 		for (InquiryDTO dto : list) {
-			              
-			data.add(URLEncoder.encode(dto.getId())+" : "+ URLEncoder.encode(dto.getContents()));
+			JSONObject realdata = new JSONObject();
+			realdata.put("id", URLEncoder.encode(dto.getId()));
+			realdata.put("contents", URLEncoder.encode(dto.getContents()));
+			
+			if(dto.getAnswer()!=null){
+			realdata.put("answer", URLEncoder.encode(dto.getAnswer()));}
+			else {realdata.put("answer", "");}
+			data.add(realdata);
 		}
 		String res = data.toJSONString();
 			response.getWriter().append(res);
