@@ -42,7 +42,11 @@
 </c:forEach>        
     </table>
 </div>
-
+<div class="delete">
+	<p>삭제 하시겠습니까?</p>
+	<button class="deletebtn">삭제</button>
+	<button class="cencelbtn">취소</button>
+</div>
 <div class="stepsign">
     <form>
 	    <table>
@@ -88,38 +92,48 @@
 <script>
 	$(function(){
 		let level = "${level}";
+		let add = false;
+		let modify = false;
         $(".popupbtn").click(function(e){
             e.preventDefault();
 
             $(".popupbg").fadeIn(500);
             $(".stepsign").stop().animate({bottom:"50%"},500)
-            	
             
-            $(".stepsign").submit(function(e){
-                e.preventDefault();
-		$.ajax({
-          	
-          	url:"<c:url value='/ajax/Add'/>",
-          	type:'POST',
-  			data:{id:$("#id").val(),pw:$("#pw").val(),name:$("#name").val(),email:$("#email").val(),tel:$("#tel").val(),level:level},
-  			async:false,
-  			//dataType:'json',
-  			success:function(data){
-  				console.log(data.chk);
-  				if(data[0]=="false"){alert("실패")}
-  				else{alert("성공");
-  					location.href="?level="+level;
-  				}
-  			},
-  			error:function(e){console.log(e)}
-        		}) 
-            	
-            })
-        })
+            
+			$("#id").val("");
+			$("#pw").val("");
+			$("#name").val("");
+			$("#email").val("");
+			$("#tel").val("");
+			add = true;
+            if(add){
+	            $(".stepsign").submit(function(e){
+	                e.preventDefault();
+					$.ajax({
+			          	url:"<c:url value='/ajax/Add'/>",
+			          	type:'POST',
+			  			data:{id:$("#id").val(),pw:$("#pw").val(),name:$("#name").val(),email:$("#email").val(),tel:$("#tel").val(),level:level},
+			  			async:false,
+			  			//dataType:'json',
+			  			success:function(data){
+			  				console.log(data.chk);
+			  				if(data[0]=="false"){alert("실패")}
+			  				else{alert("성공");
+			  					location.href="?level="+level;
+			  				}
+			  			},
+			  			error:function(e){console.log(e)}
+		        	}) 
+		            	
+		        })
+            }
+	    })
         $(".popupbg").click(function(){
             $(this).fadeOut(500);
             $(".stepsign").stop().animate({bottom:"-100vh"},500)
-            
+            add=false;
+            modify=false;
         })
         
         
@@ -147,6 +161,7 @@
             	return alert("하나만 체크해 주세요");
             }
             
+            modify = true;
             console.log(id);
             $(".popupbg").fadeIn(500);
             $(".stepsign").stop().animate({bottom:"50%"},500)
@@ -159,32 +174,69 @@
 	         	type:'POST',
 	 			data:{id:id},
 	 			async:false,
-	 			//dataType:'json',
+	 			dataType:'json',
 	 			success:function(data){
 	 				
-	 				/* $("#id").val(decodeURIComponent(data.id));
+	 				$("#id").val(decodeURIComponent(data.id));
 	 				$("#pw").val(decodeURIComponent(data.pw));
 	 				$("#name").val(decodeURIComponent(data.name));
 	 				$("#email").val(decodeURIComponent(data.email));
-	 				$("#tel").val(decodeURIComponent(data.tel)); */
-	 				console.log(data)
-	 				$("#id").val(data.id);
-	 				$("#pw").val(data.pw);
-	 				$("#name").val(data.name);
-	 				$("#email").val(data.email);
-	 				$("#tel").val(data.tel);
+	 				$("#tel").val(decodeURIComponent(data.tel));
+	 				
 	 			},
 	 			error:function(e){console.log(e)}
 	    	})  
 	            
-	            
-	        $(".stepsign").submit(function(e){
-                e.preventDefault();
-		
-	            	
-	        })
+	        if(modify){    
+		        $(".stepsign").submit(function(e){
+	                e.preventDefault();
+			
+		            	
+		        })
+	        }
         })
         
         
+        
+        
+        
+        
+        
+        
+        
+           $(".delete").click(function(e){
+	            e.preventDefault();
+	            let id = "";
+	            for(let i=0;i<$(".idchktr").length;i++){
+	            	if($(".idchktr").eq(i).find(".dataChk").is(':checked')){
+	            		cnt++;
+	            		id += $(".idchktr").eq(i).find(".dataChk").val()+","
+	            	}
+	            }
+  
+		        $(".stepsign").submit(function(e){
+	                e.preventDefault();
+
+		            $.ajax({
+		         	
+			         	url:"<c:url value='/ajax/Modify'/>",
+			         	type:'POST',
+			 			data:{id:id},
+			 			async:false,
+			 			dataType:'json',
+			 			success:function(data){
+			 				
+			 				$("#id").val(decodeURIComponent(data.id));
+			 				$("#pw").val(decodeURIComponent(data.pw));
+			 				$("#name").val(decodeURIComponent(data.name));
+			 				$("#email").val(decodeURIComponent(data.email));
+			 				$("#tel").val(decodeURIComponent(data.tel));
+			 				
+			 			},
+			 			error:function(e){console.log(e)}
+			    	})
+		            	
+		        })
+       	 })
 	})
 </script>

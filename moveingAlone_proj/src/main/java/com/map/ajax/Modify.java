@@ -21,39 +21,30 @@ public class Modify implements AjaxService {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-		}
 	
 		System.out.println(request.getParameter("id"));
 		
 		
 		UserDTO dto = new UserDAO().oneUser(request.getParameter("id"));
-		//JSONObject data = new JSONObject();
-		JSONArray data = new JSONArray();
+		JSONObject data = new JSONObject();
+		System.out.println(dto.getId());
+		System.out.println(dto.getPw());
+		System.out.println(dto.getName());
+		System.out.println(dto.getEmail());
+		System.out.println(dto.getTel());
 		
 		try {
 		
-		//data.put("id",dto.getId());
-		//data.put("pw",dto.getPw());
-		//data.put("name",dto.getName());
-		//data.put("email",dto.getEmail());
-		//data.put("tel",dto.getTel());
-		//URLEncoder.encode("UTF-8",
-		
-
-		data.add(dto.getId());
-		data.add(dto.getPw());
-		data.add(dto.getName());
-		data.add(dto.getEmail());
-		data.add(dto.getTel());
+		data.put("id",URLEncoder.encode(dto.getId(),"UTF-8"));
+		data.put("pw",URLEncoder.encode(dto.getPw(),"UTF-8"));
+		data.put("name",URLEncoder.encode(dto.getName(),"UTF-8"));
+		data.put("email",URLEncoder.encode(dto.getEmail(),"UTF-8"));
+		data.put("tel",URLEncoder.encode(dto.getTel(),"UTF-8"));
 			
 		String res = data.toString();
 		
-		response.getWriter().append(res);
+		response.getWriter().append(data.toJSONString());
 			
-		response.getWriter().append(data.toString());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
